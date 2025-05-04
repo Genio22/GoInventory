@@ -5,4 +5,7 @@ module com.example.goinventory {
 
     opens login to javafx.fxml;
     exports login;
+
+    opens Dashboard to javafx.fxml;
+    exports Dashboard;
 }

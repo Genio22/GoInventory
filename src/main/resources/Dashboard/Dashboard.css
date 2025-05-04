@@ -1,0 +1,16 @@
+.Menu_bar{
+    -fx-background-color: #478bda; /* fallback color */
+
+    /* or contain, depending on preference */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: 200px 200px;
+}
+.logo{
+    -fx-background-color: #478bda; /* fallback color */
+    -fx-background-image: url("icon.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+
+}

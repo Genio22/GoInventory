@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane minHeight="635.0" minWidth="1224.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.Dashboard_controller">
+   <children>
+      <AnchorPane id="Menu" prefHeight="768.0" prefWidth="234.0" styleClass="Menu_bar" stylesheets="@Dashboard.css">
+         <children>
+            <AnchorPane layoutX="21.0" layoutY="47.0" prefHeight="43.0" prefWidth="55.0" styleClass="logo" stylesheets="@Dashboard.css" />
+            <Label layoutX="83.0" layoutY="47.0" prefHeight="43.0" prefWidth="137.0" text="GoInventory">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </children>
 </AnchorPane>
