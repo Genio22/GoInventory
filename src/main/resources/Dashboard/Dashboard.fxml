@@ -17,7 +17,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <MenuButton fx:id="Product_Inventory" layoutX="23.0" layoutY="183.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" stylesheets="@Dashboard.css" text="Product &amp; Inventory" textAlignment="CENTER">
+            <MenuButton fx:id="Product_Inventory" layoutX="23.0" layoutY="239.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" stylesheets="@Dashboard.css" text="Product &amp; Inventory" textAlignment="CENTER">
               <items>
                 <MenuItem mnemonicParsing="false" text="View Products" />
                 <MenuItem mnemonicParsing="false" text="Edit Product" />
@@ -33,17 +33,26 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <MenuButton fx:id="Product_Inventory1" layoutX="23.0" layoutY="239.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" stylesheets="@Dashboard.css" text="Order Management" textAlignment="CENTER">
+            <MenuButton fx:id="Order_Management" layoutX="23.0" layoutY="295.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" stylesheets="@Dashboard.css" text="Order Management" textAlignment="CENTER">
                <items>
-                  <MenuItem mnemonicParsing="false" text="View Products" />
-                  <MenuItem mnemonicParsing="false" text="Edit Product" />
+                  <MenuItem mnemonicParsing="false" text="View Order" />
+                  <MenuItem mnemonicParsing="false" text="Update Order Status" />
                   <MenuItem mnemonicParsing="false" text="Adjust Stock Levels" />
-                  <MenuItem mnemonicParsing="false" text="View Stock Levels &amp; Locations" />
                </items>
                <font>
                   <Font size="14.0" />
                </font>
             </MenuButton>
+            <Button fx:id="Invoices" layoutX="23.0" layoutY="348.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" stylesheets="@Dashboard.css" text="Invoices" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="Manage_Users_Role" layoutX="23.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" stylesheets="@Dashboard.css" text="Manage Users &amp; Roles" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </children>
 </AnchorPane>
