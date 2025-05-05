@@ -8,4 +8,7 @@ module com.example.goinventory {
 
     opens Dashboard to javafx.fxml;
     exports Dashboard;
+
+    opens Product_Inventory to javafx.fxml;
+    exports Product_Inventory;
 }
