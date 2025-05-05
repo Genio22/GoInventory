@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Login_Controller">
     <children>
         <TextField fx:id="user_text" layoutX="387.0" layoutY="148.0" onAction="#username" />
         <Label layoutX="387.0" layoutY="122.0" text="Username" />
         <Label layoutX="387.0" layoutY="173.0" text="Password" />
         <Button layoutX="436.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
-        <AnchorPane fx:id="sidePanel" prefHeight="409.0" prefWidth="329.0" styleClass="side-pane" stylesheets="@login.css" />
+        <AnchorPane fx:id="sidePanel" prefHeight="409.0" prefWidth="329.0" styleClass="side-pane" stylesheets="@../../login/login.css" />
         <PasswordField fx:id="pass_text" layoutX="387.0" layoutY="192.0" onAction="#password" />
 
     </children>

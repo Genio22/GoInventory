@@ -1,4 +1,4 @@
-package login;
+package com.example.goinventory.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
