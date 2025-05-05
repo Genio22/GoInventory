@@ -11,16 +11,15 @@ import java.io.IOException;
 
 public class Dashboard_app extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) {launch(args);}
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1366, 768);
-        Image logo = new Image("file:/F:/Project java/GoInventory/src/main/resources/Logo/icon.png");
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_Menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Image logo = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
         primaryStage.setTitle("Dashboard");
+        System.out.println(getClass().getResource("/Image/Logo/icon.png"));
         primaryStage.setMinHeight(scene.getHeight());
         primaryStage.setMinWidth(scene.getWidth());
         primaryStage.getIcons().add(logo);

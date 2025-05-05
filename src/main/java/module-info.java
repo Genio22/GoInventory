@@ -1,6 +1,16 @@
 module com.example.goinventory {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires de.jensd.fx.glyphs.fontawesome;
+
+
+    opens com.example.goinventory to javafx.fxml;
+    exports com.example.goinventory;
+    exports com.example.goinventory.Controller;
+    exports com.example.goinventory.Model;
+    exports com.example.goinventory.View;
+
 
 
     opens login to javafx.fxml;
@@ -11,4 +21,6 @@ module com.example.goinventory {
 
     opens Product_Inventory to javafx.fxml;
     exports Product_Inventory;
+
+
 }

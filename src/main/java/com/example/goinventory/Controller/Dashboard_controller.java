@@ -1,4 +1,4 @@
-package Dashboard;
+package com.example.goinventory.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,5 +20,8 @@ public class Dashboard_controller {
 
     @FXML
     private MenuButton Product_Inventory;
+
+
+
 
 }

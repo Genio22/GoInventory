@@ -4,20 +4,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="635.0" minWidth="1224.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Dashboard_controller">
+<AnchorPane minHeight="635.0" minWidth="1224.0" prefHeight="768.0" prefWidth="1366.0" stylesheets="@../../Style/Dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Dashboard_controller">
    <children>
-      <AnchorPane id="Menu" prefHeight="768.0" prefWidth="234.0" styleClass="Menu_bar" stylesheets="@../FXML/Admin/Dashboard.css">
+      <AnchorPane id="Menu" prefHeight="768.0" prefWidth="234.0" styleClass="Menu_bar" stylesheets="@../../Style/Dashboard.css">
          <children>
-            <AnchorPane layoutX="21.0" layoutY="47.0" prefHeight="43.0" prefWidth="55.0" styleClass="logo" stylesheets="@../FXML/Admin/Dashboard.css" />
-            <Label layoutX="83.0" layoutY="47.0" prefHeight="43.0" prefWidth="137.0" text="GoInventory">
+            <ImageView fitHeight="51.0" fitWidth="57.0" layoutX="23.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
+               <image>
+                  <Image url="@../../Image/Logo/icon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="80.0" layoutY="51.0" prefHeight="43.0" prefWidth="140.0" text="GoInventory">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <MenuButton fx:id="Product_Inventory" layoutX="23.0" layoutY="239.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" styleClass="button" stylesheets="@../FXML/Admin/Dashboard.css" text="Product &amp; Inventory" textAlignment="CENTER">
+            <MenuButton fx:id="Product_Inventory" layoutX="23.0" layoutY="239.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" text="Product &amp; Inventory" textAlignment="CENTER">
               <items>
                 <MenuItem mnemonicParsing="false" text="View Products" />
                 <MenuItem mnemonicParsing="false" text="Edit Product" />
@@ -28,12 +34,12 @@
                   <Font size="14.0" />
                </font>
             </MenuButton>
-            <Button fx:id="Dashboard" layoutX="23.0" layoutY="132.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" stylesheets="@../FXML/Admin/Dashboard.css" text="Dashboard" textAlignment="CENTER">
+            <Button fx:id="Dashboard" layoutX="23.0" layoutY="132.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" text="Dashboard" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <MenuButton fx:id="Order_Management" layoutX="23.0" layoutY="295.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" stylesheets="@../FXML/Admin/Dashboard.css" text="Order Management" textAlignment="CENTER">
+            <MenuButton fx:id="Order_Management" layoutX="23.0" layoutY="295.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="184.0" text="Order Management" textAlignment="CENTER">
                <items>
                   <MenuItem mnemonicParsing="false" text="View Order" />
                   <MenuItem mnemonicParsing="false" text="Update Order Status" />
@@ -43,12 +49,12 @@
                   <Font size="14.0" />
                </font>
             </MenuButton>
-            <Button fx:id="Invoices" layoutX="23.0" layoutY="348.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" stylesheets="@../FXML/Admin/Dashboard.css" text="Invoices" textAlignment="CENTER">
+            <Button fx:id="Invoices" layoutX="23.0" layoutY="348.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" text="Invoices" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Manage_Users_Role" layoutX="23.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" stylesheets="@../FXML/Admin/Dashboard.css" text="Manage Users &amp; Roles" textAlignment="CENTER">
+            <Button fx:id="Manage_Users_Role" layoutX="23.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="184.0" stylesheets="@../../Style/Dashboard.css" text="Manage Users &amp; Roles" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>

@@ -12,7 +12,7 @@
         <Label layoutX="387.0" layoutY="122.0" text="Username" />
         <Label layoutX="387.0" layoutY="173.0" text="Password" />
         <Button layoutX="436.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
-        <AnchorPane fx:id="sidePanel" prefHeight="409.0" prefWidth="329.0" styleClass="side-pane" stylesheets="@../../login/login.css" />
+        <AnchorPane fx:id="sidePanel" prefHeight="409.0" prefWidth="329.0" styleClass="side-pane" stylesheets="@../Style/login.css" />
         <PasswordField fx:id="pass_text" layoutX="387.0" layoutY="192.0" onAction="#password" />
 
     </children>

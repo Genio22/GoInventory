@@ -1,4 +1,4 @@
-package com.example.goinventory.ViewFactory;
+package com.example.goinventory.View;
 
 public class ViewFactory {
 }

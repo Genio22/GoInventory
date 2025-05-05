@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class LoginController {
+public class Login_Controller {
         private String username, password;
         @FXML
         private PasswordField pass_text;

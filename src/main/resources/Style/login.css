@@ -1,6 +1,6 @@
 .side-pane {
     -fx-background-color: #1366c8; /* fallback color */
-    -fx-background-image: url("icon.png");
+    -fx-background-image: url("../login/icon.png");
      /* or contain, depending on preference */
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
