@@ -25,7 +25,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Report Suggestion/Bugs" wrappingWidth="136.029296875" />
                   <Label prefHeight="23.0" prefWidth="172.0" text="Use this to report bugs" />
-                  <Button mnemonicParsing="false" text="Button">
+                  <Button fx:id="report_button" mnemonicParsing="false" text="Button">
                      <graphic>
                         <FontAwesomeIconView glyphName="PLUS" />
                      </graphic></Button>
@@ -33,7 +33,7 @@
             </VBox>
             <VBox layoutX="13.0" layoutY="131.0" prefHeight="238.0" prefWidth="203.0" styleClass="menu">
                <children>
-                  <Button fx:id="Dashboard" mnemonicParsing="false" prefHeight="37.0" prefWidth="224.0" text="Dashboard" textAlignment="CENTER">
+                  <Button fx:id="Dashboard_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="224.0" text="Dashboard" textAlignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -41,7 +41,7 @@
                         <FontAwesomeIconView glyphName="HOME" />
                      </graphic>
                   </Button>
-                  <Button fx:id="Manage_Users_Role" mnemonicParsing="false" prefHeight="42.0" prefWidth="220.0" text="Manage Users &amp; Roles" textAlignment="CENTER">
+                  <Button fx:id="Manage_Users_Role_button" mnemonicParsing="false" prefHeight="42.0" prefWidth="220.0" text="Manage Users &amp; Roles" textAlignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -49,12 +49,12 @@
                         <FontAwesomeIconView glyphName="USER" />
                      </graphic>
                   </Button>
-                  <MenuButton fx:id="Product_Inventory" mnemonicParsing="false" prefHeight="46.0" prefWidth="211.0" text="Product &amp; Inventory" textAlignment="CENTER">
+                  <MenuButton fx:id="Product_Inventory_button" mnemonicParsing="false" prefHeight="46.0" prefWidth="211.0" text="Product &amp; Inventory" textAlignment="CENTER">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="View Products" />
-                        <MenuItem mnemonicParsing="false" text="Edit Product" />
-                        <MenuItem mnemonicParsing="false" text="Adjust Stock Levels" />
-                        <MenuItem mnemonicParsing="false" text="View Stock Levels &amp; Locations" />
+                        <MenuItem fx:id="View_Products_button" mnemonicParsing="false" text="View Products" />
+                        <MenuItem fx:id="Edit_Product_button" mnemonicParsing="false" text="Edit Product" />
+                        <MenuItem fx:id="Adjust_Stock_Level_button" mnemonicParsing="false" text="Adjust Stock Levels" />
+                        <MenuItem fx:id="View_Stock_Levels_Locations_button" mnemonicParsing="false" text="View Stock Levels &amp; Locations" />
                      </items>
                      <font>
                         <Font size="14.0" />
@@ -63,11 +63,11 @@
                         <FontAwesomeIconView glyphName="CUBES" wrappingWidth="16.0" />
                      </graphic>
                   </MenuButton>
-                  <MenuButton fx:id="Order_Management" mnemonicParsing="false" prefHeight="43.0" prefWidth="221.0" text="Order Management" textAlignment="CENTER">
+                  <MenuButton fx:id="Order_Management_button" mnemonicParsing="false" prefHeight="43.0" prefWidth="221.0" text="Order Management" textAlignment="CENTER">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="View Order" />
-                        <MenuItem mnemonicParsing="false" text="Update Order Status" />
-                        <MenuItem mnemonicParsing="false" text="Adjust Stock Levels" />
+                        <MenuItem fx:id="View_Order_button" mnemonicParsing="false" text="View Order" />
+                        <MenuItem fx:id="Update_Order_Status_button" mnemonicParsing="false" text="Update Order Status" />
+                        <MenuItem fx:id="O_Adjust_Stock_Levels_button" mnemonicParsing="false" text="Adjust Stock Levels" />
                      </items>
                      <font>
                         <Font size="14.0" />
@@ -76,7 +76,7 @@
                         <FontAwesomeIconView glyphName="SHOPPING_CART" />
                      </graphic>
                   </MenuButton>
-                  <Button fx:id="Invoices" mnemonicParsing="false" prefHeight="37.0" prefWidth="241.0" text="Invoices" textAlignment="CENTER">
+                  <Button fx:id="Invoices_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="241.0" text="Invoices" textAlignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font>
