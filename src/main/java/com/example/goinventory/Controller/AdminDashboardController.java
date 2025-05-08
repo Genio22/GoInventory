@@ -21,7 +21,7 @@ public class AdminDashboardController implements Initializable {
                 new PieChart.Data("Others", 10)
         );
 
-        pieChart.setTitle("Inventory Overview");
+        //pieChart.setTitle("Inventory Overview");
         pieChart.setLabelsVisible(true);
         pieChart.setLegendVisible(true);
     }

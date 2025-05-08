@@ -13,15 +13,15 @@
 <AnchorPane prefHeight="768.0" prefWidth="1136.0" stylesheets="@../../Style/dashborad.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.AdminDashboardController">
    <children>
       <!-- Revenue Section -->
-      <VBox layoutX="780.0" layoutY="76.0" prefHeight="301.0" prefWidth="281.0">
+      <VBox layoutX="780.0" layoutY="76.0" prefHeight="301.0" prefWidth="281.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="76.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Revenue " wrappingWidth="220.083984375" />
-            <PieChart fx:id="pieChart" prefHeight="217.0" prefWidth="251.0" title="total" />
+            <PieChart fx:id="pieChart" prefHeight="217.0" prefWidth="251.0" />
          </children>
       </VBox>
 
       <!-- Sales Activity Section -->
-      <VBox layoutX="46.0" layoutY="76.0" prefHeight="237.0" prefWidth="530.0">
+      <VBox layoutX="46.0" layoutY="76.0" prefHeight="237.0" prefWidth="530.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="80.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Activity" />
             <HBox prefHeight="229.0" prefWidth="485.0">
@@ -69,7 +69,7 @@
       </VBox>
 
       <!-- Inventory Summary Section -->
-      <VBox layoutX="76.0" layoutY="433.0" prefHeight="228.0" prefWidth="376.0">
+      <VBox layoutX="79.0" layoutY="453.0" prefHeight="228.0" prefWidth="376.0" AnchorPane.bottomAnchor="70.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Summary" wrappingWidth="104.083984375" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -84,7 +84,7 @@
       </VBox>
 
       <!-- Sales Order Summary Section -->
-      <VBox layoutX="491.0" layoutY="417.0" prefHeight="244.0" prefWidth="579.0">
+      <VBox layoutX="491.0" layoutY="445.0" prefHeight="244.0" prefWidth="579.0" AnchorPane.bottomAnchor="70.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Order Summary (in BDT)" />
             <BarChart>
