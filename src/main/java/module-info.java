@@ -11,6 +11,8 @@ module com.example.goinventory {
     exports com.example.goinventory.Model;
     exports com.example.goinventory.View;
 
+    opens com.example.goinventory.Controller to javafx.fxml;
+
 
 
     opens login to javafx.fxml;

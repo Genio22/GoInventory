@@ -1,14 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.goinventory.Controller.AdminDashboard"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="768.0" prefWidth="1136.0" stylesheets="@../../Style/dashborad.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.AdminDashboardController">
+   <children>
+      <!-- Revenue Section -->
+      <VBox layoutX="780.0" layoutY="76.0" prefHeight="301.0" prefWidth="281.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Revenue " wrappingWidth="220.083984375" />
+            <PieChart fx:id="pieChart" prefHeight="217.0" prefWidth="251.0" title="total" />
+         </children>
+      </VBox>
 
+      <!-- Sales Activity Section -->
+      <VBox layoutX="46.0" layoutY="76.0" prefHeight="237.0" prefWidth="530.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Activity" />
+            <HBox prefHeight="229.0" prefWidth="485.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="23.0" layoutY="191.0" text="TO BE PACKED" wrappingWidth="86.7890625" />
+                        <Text layoutX="52.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
+                           <font>
+                              <Font size="47.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <!-- Add material for Sales Activity 2 -->
+                     <Text layoutX="26.0" layoutY="191.0" text="TO BE SHIPPED" />
+                     <Text layoutX="56.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
+                        <font>
+                           <Font size="47.0" />
+                        </font>
+                     </Text>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <!-- Add material for Sales Activity 3 -->
+                     <Text layoutX="20.0" layoutY="190.0" text="TO BE DELIVERED" wrappingWidth="94.0" />
+                     <Text layoutX="53.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
+                        <font>
+                           <Font size="47.0" />
+                        </font>
+                     </Text>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <!-- Add material for Sales Activity 4 -->
+                     <Text layoutX="22.0" layoutY="188.0" text="TO BE INVOICED" />
+                     <Text layoutX="52.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
+                        <font>
+                           <Font size="47.0" />
+                        </font>
+                     </Text>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Inventory Summary Section -->
+      <VBox layoutX="76.0" layoutY="433.0" prefHeight="228.0" prefWidth="376.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Summary" wrappingWidth="104.083984375" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <!-- Add material for Inventory Summary 1 -->
+               <Text layoutX="10.0" layoutY="30.0" text="Inventory Item 1" />
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <!-- Add material for Inventory Summary 2 -->
+               <Text layoutX="10.0" layoutY="30.0" text="Inventory Item 2" />
+            </AnchorPane>
+         </children>
+      </VBox>
+
+      <!-- Sales Order Summary Section -->
+      <VBox layoutX="491.0" layoutY="417.0" prefHeight="244.0" prefWidth="579.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Order Summary (in BDT)" />
+            <BarChart>
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+               <!-- Add material for Sales Order Summary chart -->
+            </BarChart>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
