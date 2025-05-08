@@ -5,12 +5,25 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Style/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Login_Controller">
-   <AnchorPane prefHeight="400.0" prefWidth="323.0" styleClass="side-pane" />
+    <AnchorPane prefHeight="400.0" prefWidth="323.0" styleClass="side-pane">
+        <Text layoutX="56.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="company-name" text="GoInventroy" wrappingWidth="210.13671875">
+           <font>
+               <Font size="34.0" />
+           </font>
+        </Text>
+    </AnchorPane>
     <TextField fx:id="user_text" layoutX="374.0" layoutY="127.0" onAction="#username" />
     <Label layoutX="374.0" layoutY="108.0" text="Username" />
     <Label layoutX="376.0" layoutY="173.0" text="Password" />
     <PasswordField fx:id="pass_text" layoutX="374.0" layoutY="192.0" onAction="#password" />
     <Button fx:id="signin_button" layoutX="422.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
+   <Text layoutX="441.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-header" text="Login" wrappingWidth="48.443359375">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
 </AnchorPane>

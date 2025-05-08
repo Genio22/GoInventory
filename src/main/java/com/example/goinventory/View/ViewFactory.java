@@ -50,7 +50,7 @@ public class ViewFactory {
         Image i = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Login");
+        stage.setTitle("GoInventory");
         stage.getIcons().add(i);
         stage.show();
     }

@@ -49,3 +49,19 @@
     -fx-background-color: #1f54c6;
     -fx-text-fill: white;
 }
+
+
+/* For the company name "GoInventroy" */
+.company-name {
+    -fx-fill: #ffffff;               /* white text */
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0.3, 1, 1);
+}
+
+/* For the page header "Login" */
+.login-header {
+    -fx-fill: #1f54c6;               /* brand blue */
+    -fx-font-size: 19px;
+    -fx-font-weight: semibold;
+}
