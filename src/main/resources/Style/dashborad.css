@@ -1,0 +1,127 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+AnchorPane {
+    -fx-background-color: linear-gradient(to bottom, #f7f7f7, #eaeaea);
+    -fx-padding: 20px;
+}
+
+/* Text Styling */
+Text {
+    -fx-fill: #333333;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+/* VBox Styling */
+VBox {
+    -fx-spacing: 15px;
+    -fx-padding: 15px;
+}
+
+VBox > Text {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-fill: #444444;
+}
+
+/* PieChart Styling */
+PieChart {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 3, 3);
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+/* BarChart Styling */
+BarChart {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 3, 3);
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+CategoryAxis, NumberAxis {
+    -fx-tick-label-fill: #666666;
+    -fx-tick-label-font-size: 12px;
+    -fx-axis-line-visible: false;
+    -fx-border-color: transparent;
+}
+
+/* HBox Styling */
+HBox {
+    -fx-spacing: 20px;
+    -fx-padding: 10px;
+}
+
+/* AnchorPane Styling for Sections */
+AnchorPane {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 2, 2);
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-padding: 15px;
+    -fx-border-insets: 2px;
+}
+
+/* Sales Activity Counters */
+AnchorPane > Text {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-fill: #555555;
+}
+
+AnchorPane > Text:nth-child(2) {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-fill: #2a9d8f;
+}
+
+/* Inventory Summary Items */
+AnchorPane > Text {
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-fill: #333333;
+}
+
+/* Styling for Titles */
+VBox > Text:first-child {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #2a9d8f;
+}
+
+/* Hover Effects */
+AnchorPane:hover {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #2a9d8f;
+    -fx-border-width: 1.5px;
+    -fx-cursor: hand;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    VBox {
+        -fx-spacing: 10px;
+        -fx-padding: 10px;
+    }
+
+    Text {
+        -fx-font-size: 14px;
+    }
+
+    AnchorPane {
+        -fx-padding: 10px;
+    }
+}
