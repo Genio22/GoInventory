@@ -13,13 +13,4 @@ module com.example.goinventory {
 
     opens com.example.goinventory.Controller to javafx.fxml;
 
-
-
-    opens login to javafx.fxml;
-    exports login;
-
-    opens Dashboard to javafx.fxml;
-    exports Dashboard;
-
-
 }

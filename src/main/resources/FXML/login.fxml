@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Login_Controller">
-    <TextField fx:id="user_text" layoutX="387.0" layoutY="148.0" onAction="#username" />
-    <Label layoutX="387.0" layoutY="122.0" text="Username" />
-    <Label layoutX="387.0" layoutY="173.0" text="Password" />
-    <Button fx:id="signin_button" layoutX="436.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
-    <AnchorPane fx:id="sidePanel" prefHeight="409.0" prefWidth="329.0" styleClass="side-pane" stylesheets="@../Style/login.css" />
-    <PasswordField fx:id="pass_text" layoutX="387.0" layoutY="192.0" onAction="#password" />
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Style/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Login_Controller">
+   <AnchorPane prefHeight="400.0" prefWidth="323.0" styleClass="side-pane" />
+    <TextField fx:id="user_text" layoutX="374.0" layoutY="127.0" onAction="#username" />
+    <Label layoutX="374.0" layoutY="108.0" text="Username" />
+    <Label layoutX="376.0" layoutY="173.0" text="Password" />
+    <PasswordField fx:id="pass_text" layoutX="374.0" layoutY="192.0" onAction="#password" />
+    <Button fx:id="signin_button" layoutX="422.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
 </AnchorPane>

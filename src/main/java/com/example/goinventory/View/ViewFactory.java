@@ -29,7 +29,7 @@ public class ViewFactory {
         return dashboardview;
     }
 
-    public void showLoginWindows(){
+    public void showLoginWindows(){// User: Admin, Pass: admin
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml" ));
         CreateStage(loader);
     }

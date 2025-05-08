@@ -13,35 +13,37 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Login_Controller  implements Initializable {
-    public Button signin_button;
+public class Login_Controller implements Initializable {
+    @FXML
+    private Button signin_button;
+
+    @FXML
+    private PasswordField pass_text;
+
+    @FXML
+    private TextField user_text;
+
+    @FXML
+    private AnchorPane sidePanel;
+
     private String username, password;
-        @FXML
-        private PasswordField pass_text;
-
-        @FXML
-        private AnchorPane sidePanel;
-
-        @FXML
-        private TextField user_text;
 
     @FXML
     void signin_click(MouseEvent event) {
-
-        this.username = user_text.getText();
-        this.password = pass_text.getText();
+        username = user_text.getText();
+        password = pass_text.getText();
 
         if ("Admin".equals(username) && "admin".equals(password)) {
             System.out.println("Login Successful");
-            System.out.println(
-                    "Username: " + username + " Password: " + password
-            );
+            System.out.println("Username: " + username + " Password: " + password);
             System.out.println("Welcome Admin");
+
+            // Open admin window
+            Model.getInstance().getViewFactory().showAdminWindows();
+
         } else {
             System.out.println("Invalid credentials. Access denied.");
-            System.out.println(
-                    "Username: " + username + " Password: " + password
-            );
+            System.out.println("Username: " + username + " Password: " + password);
         }
     }
 
@@ -55,15 +57,8 @@ public class Login_Controller  implements Initializable {
         this.password = pass_text.getText();
     }
 
-
-    /**
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  {@code null} if the location is not known.
-     * @param resources The resources used to localize the root object, or {@code null} if
-     *                  the root object was not localized.
-     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        signin_button.setOnMouseClicked(event -> Model.getInstance().getViewFactory().showAdminWindows());
+
     }
 }
