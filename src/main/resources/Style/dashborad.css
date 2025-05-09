@@ -6,10 +6,8 @@
     font-family: 'Roboto', sans-serif;
 }
 
-AnchorPane {
-    -fx-background-color: linear-gradient(to bottom, #f7f7f7, #eaeaea);
-    -fx-padding: 20px;
-}
+
+
 
 /* Text Styling */
 Text {
@@ -65,7 +63,7 @@ HBox {
 }
 
 /* AnchorPane Styling for Sections */
-AnchorPane {
+.AnchorPane1 {
     -fx-background-color: white;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 2, 2);
     -fx-border-color: #dddddd;
@@ -76,20 +74,20 @@ AnchorPane {
 }
 
 /* Sales Activity Counters */
-AnchorPane > Text {
+.AnchorPane1 > Text {
     -fx-font-size: 14px;
     -fx-font-weight: 700;
     -fx-fill: #555555;
 }
 
-AnchorPane > Text:nth-child(2) {
+.AnchorPane1 > Text:nth-child(2) {
     -fx-font-size: 48px;
     -fx-font-weight: bold;
     -fx-fill: #2a9d8f;
 }
 
 /* Inventory Summary Items */
-AnchorPane > Text {
+.AnchorPane1> Text {
     -fx-font-size: 15px;
     -fx-font-weight: 600;
     -fx-fill: #333333;
@@ -103,7 +101,7 @@ VBox > Text:first-child {
 }
 
 /* Hover Effects */
-AnchorPane:hover {
+.AnchorPane1:hover {
     -fx-background-color: #f9f9f9;
     -fx-border-color: #2a9d8f;
     -fx-border-width: 1.5px;
@@ -121,7 +119,7 @@ AnchorPane:hover {
         -fx-font-size: 14px;
     }
 
-    AnchorPane {
+    .AnchorPane1 {
         -fx-padding: 10px;
     }
 }

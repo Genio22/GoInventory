@@ -26,7 +26,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Activity" />
             <HBox prefHeight="229.0" prefWidth="485.0">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
                      <children>
                         <Text layoutX="23.0" layoutY="191.0" text="TO BE PACKED" wrappingWidth="86.7890625" />
                         <Text layoutX="52.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
@@ -36,7 +36,7 @@
                         </Text>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
                      <!-- Add material for Sales Activity 2 -->
                      <Text layoutX="26.0" layoutY="191.0" text="TO BE SHIPPED" />
                      <Text layoutX="56.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
@@ -45,7 +45,7 @@
                         </font>
                      </Text>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
                      <!-- Add material for Sales Activity 3 -->
                      <Text layoutX="20.0" layoutY="190.0" text="TO BE DELIVERED" wrappingWidth="94.0" />
                      <Text layoutX="53.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
@@ -54,7 +54,7 @@
                         </font>
                      </Text>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
                      <!-- Add material for Sales Activity 4 -->
                      <Text layoutX="22.0" layoutY="188.0" text="TO BE INVOICED" />
                      <Text layoutX="52.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="27.13671875">
@@ -72,11 +72,11 @@
       <VBox layoutX="79.0" layoutY="453.0" prefHeight="228.0" prefWidth="376.0" AnchorPane.bottomAnchor="70.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Summary" wrappingWidth="104.083984375" />
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
                <!-- Add material for Inventory Summary 1 -->
                <Text layoutX="10.0" layoutY="30.0" text="Inventory Item 1" />
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
                <!-- Add material for Inventory Summary 2 -->
                <Text layoutX="10.0" layoutY="30.0" text="Inventory Item 2" />
             </AnchorPane>

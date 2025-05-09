@@ -65,3 +65,9 @@
     -fx-font-size: 19px;
     -fx-font-weight: semibold;
 }
+
+.error-label{
+    -fx-text-fill: #e61010;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}

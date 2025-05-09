@@ -20,10 +20,11 @@
     <Label layoutX="374.0" layoutY="108.0" text="Username" />
     <Label layoutX="376.0" layoutY="173.0" text="Password" />
     <PasswordField fx:id="pass_text" layoutX="374.0" layoutY="192.0" onAction="#password" />
-    <Button fx:id="signin_button" layoutX="422.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
-   <Text layoutX="441.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-header" text="Login" wrappingWidth="48.443359375">
+    <Button fx:id="signin_button" layoutX="422.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
+    <Text layoutX="441.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-header" text="Login" wrappingWidth="48.443359375">
       <font>
          <Font size="19.0" />
       </font>
-   </Text>
+    </Text>
+   <Label fx:id="error_handel" layoutX="376.0" layoutY="242.0" styleClass="error-label" text=" " />
 </AnchorPane>
