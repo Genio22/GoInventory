@@ -41,7 +41,15 @@ public class Login_Controller implements Initializable {
             // Open admin window
             Model.getInstance().getViewFactory().showAdminWindows();
 
-        } else {
+        }else if("user".equals(username) && "123".equals(password)){
+            System.out.println("Login Successful");
+            System.out.println("Username: " + username + " Password: " + password);
+            System.out.println("Welcome user");
+
+            // Open user window
+            Model.getInstance().getViewFactory().showUserWindows();
+        } 
+        else {
             System.out.println("Invalid credentials. Access denied.");
             System.out.println("Username: " + username + " Password: " + password);
         }

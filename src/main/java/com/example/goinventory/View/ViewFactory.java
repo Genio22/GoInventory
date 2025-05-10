@@ -2,6 +2,8 @@ package com.example.goinventory.View;
 
 import com.example.goinventory.Controller.AdminController;
 import com.example.goinventory.Controller.AdminMenuController;
+import com.example.goinventory.Controller.User_Controller;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -37,6 +39,12 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml" ));
         AdminController admin = new AdminController();
         loader.setController(admin);
+        CreateStage(loader);
+    }
+    public void showUserWindows(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/User/UserDashbord.fxml" ));
+        User_Controller  user = new User_Controller();
+        loader.setController(user);
         CreateStage(loader);
     }
 
