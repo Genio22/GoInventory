@@ -61,6 +61,7 @@ public class ViewFactory {
         stage.setTitle("GoInventory");
         stage.getIcons().add(i);
         stage.show();
+
     }
 
 
