@@ -2,21 +2,35 @@ package com.example.goinventory.View;
 
 import com.example.goinventory.Controller.AdminController;
 import com.example.goinventory.Controller.AdminMenuController;
+import com.example.goinventory.Controller.User_Controller;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class ViewFactory {
+
+    private final StringProperty adminSelectedMenuItem;
     private AnchorPane dashboardview;
+    private AnchorPane ManageRoleView;
+    private AnchorPane ViewOrderView;
 
     public ViewFactory(){
-
+        this.adminSelectedMenuItem = new SimpleStringProperty("");
     }
+
+    public StringProperty getAdminSelectedMenuItem() {
+        return adminSelectedMenuItem;
+    }
+
     public AnchorPane getDashboardview() {
         //return dashboardview;
         if (dashboardview == null) {
@@ -28,15 +42,53 @@ public class ViewFactory {
         }
         return dashboardview;
     }
+    public AnchorPane getManageRoleView() {
+        if (ManageRoleView == null) {
+            try{
+                ManageRoleView = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_Manage_Role.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return ManageRoleView;
+    }
+    public AnchorPane getViewOrderView() {
+        if (ViewOrderView == null) {
+            try{
+                ViewOrderView = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_View_order.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return ViewOrderView;
+    }
 
     public void showLoginWindows(){// User: Admin, Pass: admin
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml" ));
-        CreateStage(loader);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml" ));
+            Scene scene = new Scene(loader.load());
+            Image i = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("GoInventory");
+            stage.getIcons().add(i);
+            //stage.setMinWidth(1366);
+            //stage.setMinHeight(800);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public void showAdminWindows(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml" ));
         AdminController admin = new AdminController();
         loader.setController(admin);
+        CreateStage(loader);
+    }
+    public void showUserWindows(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/User/UserDashbord.fxml" ));
+        User_Controller  user = new User_Controller();
+        loader.setController(user);
         CreateStage(loader);
     }
 
@@ -52,9 +104,10 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("GoInventory");
         stage.getIcons().add(i);
+        stage.setMinWidth(1366);
+        stage.setMinHeight(800);
         stage.show();
     }
-
     public void closeStage(Stage stage){
         stage.close();
     }

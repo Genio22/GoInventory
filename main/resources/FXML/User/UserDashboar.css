@@ -1,0 +1,57 @@
+.shadow{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 15, 0.1, 0, 0);
+}
+#searchbtn{
+ -fx-background-color: white;
+    -fx-background-radius: 0 8 8 0;
+
+
+}
+#topnev{
+    -fx-background-color: white;
+}
+#searchtxt{
+    -fx-background-color: white;
+    -fx-background-radius: 8 0 0 8;
+    -fx-border: none;
+
+}
+#searchf {
+    -fx-background-color: transparent;
+}
+#balance{
+    -fx-background-color: white;
+    -fx-arc-height: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 15, 0.5, 0, 0);
+    -fx-background-radius: 20 20 20 20   ;
+     -fx-translate-x: 50%;
+    -fx-translate-y: 50%;
+}
+#balance:hover{
+    -fx-background-color: rgb(255, 252, 252);
+    -fx-border-width: 1px;
+    -fx-border-color: blue;
+  -fx-border-radius: 20 20 20 20 ;
+ 
+}
+#balancetxt{
+    -fx-alignment: center;
+    -fx-font-size: 18px;
+
+}
+
+.btn{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-font-size: 20px;
+    -fx-text-alignment: center;
+     -fx-text-fill: black;
+}
+.btn:hover{
+   -fx-background-color: #2980b9; /* darker blue */
+}
+.btn:focused   {
+   -fx-background-color: #2980b9; /* darker blue */
+}
+#sidenev{
+    -fx-background-color: #efffff;
+}

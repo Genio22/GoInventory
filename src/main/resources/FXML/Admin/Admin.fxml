@@ -1,60 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="768.0" maxWidth="1366.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <left>
-        <fx:include source="Admin_Menu.fxml" />
-    </left>
-    <center>
-        <fx:include source="Admin_Dashboard.fxml" />
-    </center>
-   <top>
-       <GridPane maxHeight="768.0" maxWidth="1366.0" prefHeight="67.0" prefWidth="1354.0" styleClass="grid" stylesheets="@../../Style/Design.css" BorderPane.alignment="CENTER">
-           <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="888.0" minWidth="10.0" prefWidth="402.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1509.0" minWidth="0.0" prefWidth="486.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1174.0" minWidth="10.0" prefWidth="594.0" />
-           </columnConstraints>
-           <rowConstraints>
-               <RowConstraints />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           </rowConstraints>
-         <children>
-            <AnchorPane prefHeight="43.0" prefWidth="358.0" GridPane.rowIndex="1">
-               <children>
-                  <Text fill="#1b0202" layoutX="118.0" layoutY="49.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo_text" text="GoInventory" textAlignment="CENTER" wrappingWidth="150.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="46.0" fitWidth="55.0" layoutX="42.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
-                     <image>
-                        <Image url="@../../Image/Logo/icon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="67.0" prefWidth="497.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <children>
-                  <FontAwesomeIconView glyphName="USER" layoutX="481.0" layoutY="46.0" size="35">
-                     <font>
-                        <Font size="54.0" />
-                     </font>
-                  </FontAwesomeIconView>
-               </children>
-            </AnchorPane>
-         </children>
-       </GridPane>
-   </top>
+<BorderPane fx:id="admin_parent" maxHeight="768.0" maxWidth="1366.0" minHeight="768.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<left>
+    <fx:include source="Admin_Menu.fxml" />
+</left>
+<center>
+    <fx:include source="Admin_Dashboard.fxml" />
+</center>
+<top>
+    <AnchorPane prefHeight="85.0" prefWidth="1365.0" styleClass="grid" stylesheets="@../../Style/Design.css" BorderPane.alignment="CENTER">
+        <children>
+            <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="1248.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="21.0">
+                <image>
+                    <Image url="@../../Image/Logo/profile.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="377.0" layoutX="108.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="13.0">
+                <image>
+                    <Image url="@../../Image/Logo/logotxt.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="45.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="19.0">
+                <image>
+                    <Image url="@../../Image/Logo/icon.png" />
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
+</top>
 
 </BorderPane>

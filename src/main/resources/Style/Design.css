@@ -128,9 +128,16 @@ VBox Button {
     -fx-spacing: 8;       /* pixels between the Text, Label, and Button */
     -fx-padding: 10;      /* uniform padding inside the box */
 }
-
+/*
+Admin top bar design
+*/
 .grid{
     -fx-background-color: #478bda;
     -fx-background-radius: 0px 0px 10px 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 2, 2);
+}
+
+.profile_icon{
+    -fx-background-image: url("/Image/Logo/profile.png");
+    -fx-image: url("/Image/Logo/profile.png");
 }

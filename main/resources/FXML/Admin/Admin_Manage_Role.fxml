@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="768.0" prefHeight="768.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.AdminManageRole_Controller">
+   <children>
+      <TableView layoutX="53.0" layoutY="74.0" prefHeight="600.0" prefWidth="514.0">
+         <columns>
+            <TableColumn fx:id="ID" prefWidth="95.0" text="ID" />
+            <TableColumn fx:id="Name" maxWidth="4000.0" minWidth="14.0" prefWidth="115.0" text="Name" />
+            <TableColumn fx:id="MobileNumber" maxWidth="4000.0" minWidth="14.0" prefWidth="148.0" text="Mobile Number" />
+            <TableColumn fx:id="Email" maxWidth="4000.0" minWidth="14.0" prefWidth="155.0" text="Email" />
+         </columns>
+      </TableView>
+      <VBox layoutX="590.0" layoutY="74.0" prefHeight="600.0" prefWidth="514.0">
+         <children>
+            <VBox prefHeight="85.0" prefWidth="514.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                  <TextField prefWidth="334.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="85.0" prefWidth="514.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile Number" />
+                  <TextField prefWidth="514.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="85.0" prefWidth="514.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                  <TextField prefWidth="334.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="85.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
+                  <ComboBox prefHeight="26.0" prefWidth="538.0" promptText="Sylhet" />
+               </children>
+            </VBox>
+            <VBox prefHeight="85.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+                  <ComboBox prefHeight="26.0" prefWidth="555.0" promptText="Working" />
+               </children>
+            </VBox>
+            <VBox prefHeight="85.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salary" />
+                  <TextField prefWidth="334.0" />
+               </children>
+            </VBox>
+            <HBox prefHeight="85.0" prefWidth="514.0" spacing="60.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="67.0" text="SAVE" />
+                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="63.0" text="Update" />
+                  <Button mnemonicParsing="false" text="Reset" />
+                  <Button mnemonicParsing="false" text="Close" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
