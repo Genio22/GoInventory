@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -19,8 +20,11 @@ public class ViewFactory {
 
     private final StringProperty adminSelectedMenuItem;
     private AnchorPane dashboardview;
+    private AnchorPane InvoiceView;
     private AnchorPane ManageRoleView;
+    private AnchorPane Manage_product;
     private AnchorPane ViewOrderView;
+
 
     public ViewFactory(){
         this.adminSelectedMenuItem = new SimpleStringProperty("");
@@ -51,6 +55,18 @@ public class ViewFactory {
         }
         return ManageRoleView;
     }
+
+    public AnchorPane getManage_product(){
+        if (Manage_product == null) {
+            try{
+                Manage_product = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_ManageProduct_View.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return Manage_product;
+    }
+
     public AnchorPane getViewOrderView() {
         if (ViewOrderView == null) {
             try{
@@ -62,9 +78,37 @@ public class ViewFactory {
         return ViewOrderView;
     }
 
+    public AnchorPane getInvoiceView() {
+        if (InvoiceView == null) {
+            try{
+                InvoiceView = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_Invoice_View.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return InvoiceView;
+    }
+
+
+
+
+
+
     public void showLoginWindows(){// User: Admin, Pass: admin
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml" ));
-        CreateStage(loader);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml" ));
+            Scene scene = new Scene(loader.load());
+            Image i = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("GoInventory");
+            stage.getIcons().add(i);
+            //stage.setMinWidth(1366);
+            //stage.setMinHeight(800);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public void showAdminWindows(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml" ));
@@ -91,6 +135,8 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("GoInventory");
         stage.getIcons().add(i);
+        stage.setMinWidth(1366);
+        stage.setMinHeight(800);
         stage.show();
     }
     public void closeStage(Stage stage){

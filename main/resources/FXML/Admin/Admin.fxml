@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="admin_parent"  xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml">
-    <left>
-        <fx:include source="Admin_Menu.fxml"/>
-    </left>
-    <center>
-        <fx:include source="Admin_Dashboard.fxml"/>
-    </center>
+<BorderPane fx:id="admin_parent" maxHeight="768.0" maxWidth="1366.0" minHeight="768.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<left>
+    <fx:include source="Admin_Menu.fxml" />
+</left>
+<center>
+    <fx:include source="Admin_Dashboard.fxml" />
+</center>
+<top>
+    <AnchorPane prefHeight="85.0" prefWidth="1365.0" styleClass="grid" stylesheets="@../../Style/Design.css" BorderPane.alignment="CENTER">
+        <children>
+            <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="1248.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="21.0">
+                <image>
+                    <Image url="@../../Image/Logo/profile.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="377.0" layoutX="108.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="13.0">
+                <image>
+                    <Image url="@../../Image/Logo/logotxt.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="45.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="19.0">
+                <image>
+                    <Image url="@../../Image/Logo/icon.png" />
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
+</top>
 
 </BorderPane>

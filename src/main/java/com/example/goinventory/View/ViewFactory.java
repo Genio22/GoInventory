@@ -20,7 +20,9 @@ public class ViewFactory {
 
     private final StringProperty adminSelectedMenuItem;
     private AnchorPane dashboardview;
+    private AnchorPane InvoiceView;
     private AnchorPane ManageRoleView;
+    private AnchorPane Manage_product;
     private AnchorPane ViewOrderView;
 
     public ViewFactory(){
@@ -52,6 +54,19 @@ public class ViewFactory {
         }
         return ManageRoleView;
     }
+
+    public AnchorPane getManage_product(){
+        if (Manage_product == null) {
+            try{
+                Manage_product = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_ManageProduct_View.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return Manage_product;
+    }
+
+
     public AnchorPane getViewOrderView() {
         if (ViewOrderView == null) {
             try{
@@ -62,6 +77,18 @@ public class ViewFactory {
         }
         return ViewOrderView;
     }
+
+    public AnchorPane getInvoiceView() {
+        if (InvoiceView == null) {
+            try{
+                InvoiceView = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_Invoice_View.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return InvoiceView;
+    }
+
 
     public void showLoginWindows(){// User: Admin, Pass: admin
         try {
