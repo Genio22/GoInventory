@@ -65,3 +65,10 @@
     -fx-font-size: 19px;
     -fx-font-weight: semibold;
 }
+
+
+.error{
+    -fx-text-fill: #d10f21;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}

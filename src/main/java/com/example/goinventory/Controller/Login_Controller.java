@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -16,18 +17,19 @@ import java.util.ResourceBundle;
 
 public class Login_Controller implements Initializable {
     @FXML
+    private Label error_alert;
+    @FXML
     private Button signin_button;
-
     @FXML
     private PasswordField pass_text;
-
     @FXML
     private TextField user_text;
-
     @FXML
     private AnchorPane sidePanel;
 
     private String username, password;
+
+
 
     @FXML
     void signin_click(MouseEvent event) {
@@ -52,6 +54,7 @@ public class Login_Controller implements Initializable {
         else {
             System.out.println("Invalid credentials. Access denied.");
             System.out.println("Username: " + username + " Password: " + password);
+            error_alert.setText("Invalid credentials. Access denied.");
         }
     }
 
