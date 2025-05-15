@@ -1,5 +1,0 @@
-dependencies {
-    implementation 'org.apache.poi:poi-ooxml:5.2.3'
-    implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'org.apache.xmlbeans:xmlbeans:5.1.1'
-}
