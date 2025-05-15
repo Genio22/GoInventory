@@ -108,14 +108,15 @@ public class ViewFactory {
     }
     public void showAdminWindows(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin.fxml" ));
-        AdminController admin = new AdminController();
-        loader.setController(admin);
+//        if controller is not decleared in the fxml file
+//        AdminController admin = new AdminController();
+//        loader.setController(admin);
         CreateStage(loader);
     }
     public void showUserWindows(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/User/UserDashbord.fxml" ));
-        User_Controller  user = new User_Controller();
-        loader.setController(user);
+//        User_Controller  user = new User_Controller();
+//        loader.setController(user);
         CreateStage(loader);
     }
 
