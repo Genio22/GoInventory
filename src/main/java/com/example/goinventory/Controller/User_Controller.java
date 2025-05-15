@@ -1,12 +1,15 @@
 package com.example.goinventory.Controller;
 
 
+import com.example.goinventory.Model.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 public class User_Controller {
+    public Button logout_user;
     @FXML
     private AnchorPane Dashbordfarme;
     @FXML
@@ -51,5 +54,10 @@ public class User_Controller {
             Deliverdframe.setVisible(false);
             paindingframe.setVisible(true);
         }
+    }
+    public void onlogout_user(ActionEvent e){
+        Stage stage = (Stage) logout_user.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindows();
     }
 }

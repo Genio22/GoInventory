@@ -63,5 +63,12 @@
 .login-header {
     -fx-fill: #1f54c6;               /* brand blue */
     -fx-font-size: 19px;
-    -fx-font-weight: semibold;
+
+}
+
+
+.error{
+    -fx-text-fill: #d10f21;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
 }
