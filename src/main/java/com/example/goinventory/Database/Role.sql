@@ -17,5 +17,5 @@ CREATE TABLE IF NOT EXISTS employees (
 
 -- Insert sample data
 INSERT INTO employees (name, mobile_number, email, location, working_status, salary) VALUES
-('John Doe', '1234567890', 'john@example.com', 'New York', 'Active', 55000),
+('Ahnaf', '1234567890', 'john@example.com', 'New York', 'Active', 55000),
 ('Jane Smith', '0987654321', 'jane@example.com', 'Los Angeles', 'On Leave', 62000);

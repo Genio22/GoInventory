@@ -1,4 +1,4 @@
-import com.example.goinventory.GoInventory;
+package com.example.goinventory;
 
 public class App {
     public static void main(String[] args) {

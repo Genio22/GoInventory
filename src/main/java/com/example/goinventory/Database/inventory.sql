@@ -36,14 +36,4 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
-CREATE TABLE users (
-    user_id      INT AUTO_INCREMENT PRIMARY KEY,
-    username     VARCHAR(50) NOT NULL UNIQUE,
-    password     VARCHAR(50) NOT NULL,
-    role         ENUM('admin', 'user', 'deliverer') NOT NULL
-);
-INSERT INTO users (username, password, role)
-VALUES 
-('admin', 'admin123', 'admin'),
-('user01', 'user123', 'user'),
-('deliverer01', 'deli123', 'deliverer');
+
