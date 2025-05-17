@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1200.0" style="-fx-background-color: #f0faff;" stylesheets="@UserDashboar.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.User_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1200.0" style="-fx-background-color: #f0faff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.User_Controller">
    <AnchorPane fx:id="topnev" layoutX="1.0" layoutY="1.0" prefHeight="103.0" prefWidth="1200.0" stylesheets="@UserDashboar.css" AnchorPane.bottomAnchor="665.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Circle fx:id="account" fill="#f2f2f2" layoutX="1141.0" layoutY="54.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="32.0" fitWidth="54.0" layoutX="1114.0" layoutY="37.0">
@@ -55,8 +56,8 @@
       </ImageView>
       <Button fx:id="logout_user" layoutX="1029.0" layoutY="38.0" mnemonicParsing="false" onAction="#onlogout_user" stylesheets="@../../Style/Design.css" text="Logout" />
    </AnchorPane>
-   <VBox layoutY="102.0" prefHeight="668.0" prefWidth="251.0" style="-fx-background-color: #30b8fc;" styleClass="shadow" stylesheets="@UserDashboar.css">
-      <Button fx:id="dashbtn" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="btn" stylesheets="@UserDashboar.css" text="Dashboard">
+   <VBox layoutY="102.0" prefHeight="668.0" prefWidth="251.0" styleClass="vbox" stylesheets="@UserDashboar.css">
+      <Button fx:id="dashbtn" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" stylesheets="@UserDashboar.css" text="Dashboard">
          <font>
             <Font size="20.0" />
          </font>
@@ -64,17 +65,17 @@
             <Insets top="60.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="addparcelbtn" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="btn" text="Add Parcel">
+      <Button fx:id="addparcelbtn" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Add Parcel">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="deliverdbtn" layoutX="10.0" layoutY="137.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="btn" text="Delivered ">
+      <Button fx:id="deliverdbtn" layoutX="10.0" layoutY="137.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Delivered ">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="paindingbtn" layoutX="10.0" layoutY="204.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="btn" text="Painding">
+      <Button fx:id="paindingbtn" layoutX="10.0" layoutY="204.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Painding">
          <font>
             <Font size="20.0" />
          </font>
@@ -124,99 +125,99 @@
    </AnchorPane>
    <AnchorPane fx:id="AddParcelframe" layoutX="253.0" layoutY="102.0" prefHeight="667.0" prefWidth="949.0" AnchorPane.bottomAnchor="-1.6000000000000227" AnchorPane.leftAnchor="252.80000000000007" AnchorPane.rightAnchor="-2.6000000000000227" AnchorPane.topAnchor="102.0">
       <children>
-         <AnchorPane layoutX="-0.8" layoutY="103.2" prefHeight="565.0" prefWidth="948.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="103.0">
+         <AnchorPane layoutX="17.0" layoutY="103.2" prefHeight="542.0" prefWidth="919.0" styleClass="anchor_add_parcel" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="103.0">
             <children>
-               <Pane layoutX="35.0" layoutY="47.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="25.0" layoutY="32.0" prefHeight="58.0" prefWidth="417.0" AnchorPane.leftAnchor="25.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="35.0" layoutY="105.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="25.0" layoutY="90.0" prefHeight="58.0" prefWidth="417.0" AnchorPane.leftAnchor="25.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone ">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="35.0" layoutY="163.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="25.0" layoutY="148.0" prefHeight="58.0" prefWidth="417.0" AnchorPane.leftAnchor="25.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="35.0" layoutY="221.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="25.0" layoutY="206.0" prefHeight="58.0" prefWidth="417.0" AnchorPane.leftAnchor="25.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="District">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="35.0" layoutY="278.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="25.0" layoutY="263.0" prefHeight="58.0" prefWidth="417.0" AnchorPane.leftAnchor="25.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thana">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="119.0" layoutY="9.0" prefHeight="40.0" prefWidth="290.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="497.0" layoutY="47.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="479.0" layoutY="33.0" prefHeight="58.0" prefWidth="417.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cod Amount">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="497.0" layoutY="104.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="479.0" layoutY="90.0" prefHeight="58.0" prefWidth="417.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invoice Amount">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="497.0" layoutY="162.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="479.0" layoutY="148.0" prefHeight="58.0" prefWidth="417.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight (Kg)">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextField layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" style="-fx-background-color: #f4f5f5;" />
+                     <TextField layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Pane layoutX="35.0" layoutY="336.0" prefHeight="58.0" prefWidth="417.0">
+               <Pane layoutX="25.0" layoutY="321.0" prefHeight="58.0" prefWidth="417.0" AnchorPane.leftAnchor="25.0">
                   <children>
                      <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note">
                         <font>
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <TextArea layoutX="114.0" layoutY="8.0" prefHeight="44.0" prefWidth="299.0" />
+                     <TextArea layoutX="120.0" layoutY="7.0" prefHeight="44.0" prefWidth="290.0" styleClass="text-area" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Button layoutX="139.0" layoutY="422.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" text="Submit">
+               <Button layoutX="550.0" layoutY="420.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="319.0" styleClass="button_Submit" text="Submit" AnchorPane.rightAnchor="50.0">
                   <font>
                      <Font name="Arial" size="25.0" />
                   </font>
@@ -259,4 +260,8 @@
          </TableView>
       </AnchorPane>
    </AnchorPane>
+   <stylesheets>
+      <URL value="@UserDashboar.css" />
+      <URL value="@../../Style/User.css" />
+   </stylesheets>
 </AnchorPane>

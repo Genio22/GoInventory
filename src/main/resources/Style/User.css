@@ -1,0 +1,43 @@
+.text_field{
+    -fx-background-radius: 10px;
+
+}
+.text-area{
+    -fx-background-radius: 10px;
+    -fx-border-radius: 15px;
+    -fx-background-insets: 0;
+}
+.button_menu{
+    -fx-background-radius: 10px;
+
+    -fx-background-color: white;
+    -fx-text-fill: #30b8fc;
+    -fx-border-radius: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0, 0, 2);
+}
+
+.vbox{
+    -fx-background-color: #30b8fc;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+.anchor_add_parcel{
+    -fx-background-color: #1ad5cc;
+    -fx-background-radius: 15px;
+}
+.button_Submit{
+    -fx-background-radius: 10px;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-radius: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0, 0, 2);
+}
+.label{
+    -fx-text-fill: black;
+}
+
+

@@ -1,28 +1,48 @@
 package com.example.goinventory.Controller;
 
-import com.example.goinventory.Model.Employee;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import com.example.goinventory.Database.DB;
+import com.example.goinventory.Model.Employee;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.sql.*;
-
 public class AdminManageRole_Controller {
 
-    @FXML private TableView<Employee> employeeTable;
-    @FXML private TableColumn<Employee, Integer> ID;
-    @FXML private TableColumn<Employee, String> Name;
-    @FXML private TableColumn<Employee, String> MobileNumber;
-    @FXML private TableColumn<Employee, String> Email;
+    public ComboBox username_comboBox;
+    public ComboBox Role_comboBox;
+    @FXML
+    private TableView<Employee> employeeTable;
+    @FXML
+    private TableColumn<Employee, Integer> ID;
+    @FXML
+    private TableColumn<Employee, String> Name;
+    @FXML
+    private TableColumn<Employee, String> MobileNumber;
+    @FXML
+    private TableColumn<Employee, String> Email;
 
-    @FXML private TextField name_textField, mobileNumber_textField, Email_textField, salary_textField;
-    @FXML private ComboBox<String> location_comboBox, workingStatus_comboBox;
-    @FXML private Button save, update, reset, close;
+    @FXML
+    private TextField name_textField, mobileNumber_textField, Email_textField, salary_textField;
+    @FXML
+    private ComboBox<String> location_comboBox, workingStatus_comboBox;
+    @FXML
+    private Button save, update, reset, close;
 
     private final ObservableList<Employee> employeeList = FXCollections.observableArrayList();
     private Connection connection;
