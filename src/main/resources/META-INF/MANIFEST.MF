@@ -1,3 +1,7 @@
 Manifest-Version: 1.0
+<<<<<<< Updated upstream
 Main-Class: com.example.goinventory.App
+=======
+Main-Class: Luanch.GoInventory
+>>>>>>> Stashed changes
 

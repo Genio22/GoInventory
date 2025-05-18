@@ -14,5 +14,5 @@ module com.example.goinventory {
     exports com.example.goinventory.View;
 
     opens com.example.goinventory.Controller to javafx.fxml;
-
+    opens com.example.goinventory.Model to javafx.fxml;
 }

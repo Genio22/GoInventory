@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 -- 1. Create the database
 CREATE DATABASE IF NOT EXISTS inventory;
 USE inventory;
@@ -37,3 +38,6 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
+=======
+SELECT * FROM inventory.users;
+>>>>>>> Stashed changes
