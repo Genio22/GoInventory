@@ -36,13 +36,13 @@
          </Text>
       </Pane>
       <Pane fx:id="searchf" layoutX="389.0" layoutY="41.0" prefHeight="40.0" prefWidth="338.0" styleClass="shadow">
-         <TextField fx:id="searchtxt" prefHeight="40.0" prefWidth="290.0" promptText="Search" styleClass="shadow" stylesheets="@UserDashboar.css" />
+         <TextField fx:id="searchtxt" prefHeight="40.0" prefWidth="290.0" promptText="Search" styleClass="shadow" stylesheets="@UserDashboar.css" visible="false" />
          <Button fx:id="searchbtn" layoutX="289.0" minWidth="45.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
             <font>
                <Font size="8.0" />
             </font>
             <graphic>
-               <ImageView fitHeight="20.0" fitWidth="18.0">
+               <ImageView fitHeight="20.0" fitWidth="18.0" visible="false">
                   <image>
 
                      <Image url="@../../Image/Logo/s.png" />
@@ -132,7 +132,7 @@
          </AnchorPane>
       </children>
    </AnchorPane>
-   <AnchorPane fx:id="AddParcelframe" layoutX="253.0" layoutY="102.0" prefHeight="667.0" prefWidth="949.0" visible="false" AnchorPane.bottomAnchor="-1.6000000000000227" AnchorPane.leftAnchor="252.80000000000007" AnchorPane.rightAnchor="-2.6000000000000227" AnchorPane.topAnchor="102.0">
+   <AnchorPane fx:id="AddParcelframe" layoutX="253.0" layoutY="102.0" prefHeight="667.0" prefWidth="949.0" AnchorPane.bottomAnchor="-1.6000000000000227" AnchorPane.leftAnchor="252.80000000000007" AnchorPane.rightAnchor="-2.6000000000000227" AnchorPane.topAnchor="102.0">
       <children>
          <AnchorPane layoutX="17.0" layoutY="103.2" prefHeight="542.0" prefWidth="919.0" styleClass="anchor_add_parcel" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="103.0">
             <children>
@@ -226,7 +226,7 @@
                      <TextArea fx:id="note_textField" layoutX="120.0" layoutY="7.0" prefHeight="44.0" prefWidth="290.0" styleClass="text-area" stylesheets="@../../Style/User.css" />
                   </children>
                </Pane>
-               <Button fx:id="submitButton" layoutX="550.0" layoutY="420.0" mnemonicParsing="false" onAction="#Submit_button" prefHeight="50.0" prefWidth="319.0" text="Submit" AnchorPane.rightAnchor="50.0">
+               <Button fx:id="submitButton" layoutX="558.0" layoutY="449.0" mnemonicParsing="false" onAction="#send_mail" prefHeight="50.0" prefWidth="319.0" text="Submit" AnchorPane.rightAnchor="42.0">
                   <font>
                      <Font name="Arial" size="25.0" />
                   </font>
@@ -251,6 +251,11 @@
                      <ComboBox layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="Mac M1" />
                   </children>
                </Pane>
+               <Button fx:id="Send_Mail_button" layoutX="357.0" layoutY="451.0" mnemonicParsing="false" onAction="#Submit_button" prefHeight="1.0" prefWidth="171.0" text="Send Mail">
+                  <font>
+                     <Font name="Arial" size="25.0" />
+                  </font>
+               </Button>
             </children>
          </AnchorPane>
       </children>

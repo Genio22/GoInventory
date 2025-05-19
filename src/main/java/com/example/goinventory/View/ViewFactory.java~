@@ -71,16 +71,16 @@ public class ViewFactory {
         return ViewOrderView;
     }
 
-//    public AnchorPane getInvoiceView() {
-//        if (InvoiceView == null) {
-//            try {
-//                InvoiceView = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_Invoice_View.fxml")).load();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return InvoiceView;
-//    }
+    public AnchorPane getInvoiceView() {
+        if (InvoiceView == null) {
+            try {
+                InvoiceView = new FXMLLoader(getClass().getResource("/FXML/Admin/Admin_Invoice_View.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return InvoiceView;
+    }
 
     public AnchorPane getAssignDeliveryView() {
         if (AssignDeliveryView == null) {

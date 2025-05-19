@@ -1,9 +1,8 @@
 package com.example.goinventory.Controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.BufferedWriter;
+import java.io.*;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -26,6 +25,7 @@ import javafx.stage.Stage;
 public class User_Controller {
 
     public Button logout_user;
+    public Button Send_Mail_button;
     @FXML
     private AnchorPane Dashbordfarme;
     @FXML
@@ -245,6 +245,59 @@ public class User_Controller {
         }
     }
 
+    // Send mail file generate
+    public void send_mail(ActionEvent event) {
+        String selectQuery = "SELECT * FROM user_inventory";
+
+        File invoiceDir = new File("G:\\java project\\GoInventory-main\\GoInventory-main\\out\\Mail box\\Invoice");
+        invoiceDir.mkdirs(); // Create directory if it doesn't exist
+
+        try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(selectQuery)) {
+            while (rs.next()) {
+                // Extract data
+                String name = rs.getString("customer_name");
+                String phone = rs.getString("phone_number");
+                String address = rs.getString("address");
+                String district = rs.getString("district");
+                String thana = rs.getString("thana");
+                String note = rs.getString("note");
+                double codAmount = rs.getDouble("cod_amount");
+                double invoiceAmount = rs.getDouble("invoice_amount");
+                double weight = rs.getDouble("weight");
+                String status = rs.getString("status");
+                String date = rs.getString("date");
+
+                // ai part e file e name jate error na dey tai useless part remove kortechi
+                String safeFileName = name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
+
+                File invoiceFile = new File(invoiceDir, safeFileName + "_" + phone + "_Invoice.txt");
+                // shob string write hobe
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(invoiceFile))) {
+                    writer.write("=========== Invoice ===========\n");
+                    writer.write("Customer Name : " + name + "\n");
+                    writer.write("Phone Number  : " + phone + "\n");
+                    writer.write("Address       : " + address + "\n");
+                    writer.write("District      : " + district + "\n");
+                    writer.write("Thana         : " + thana + "\n");
+                    writer.write("Note          : " + note + "\n");
+                    writer.write("COD Amount    : " + codAmount + "\n");
+                    writer.write("Invoice Amount: " + invoiceAmount + "\n");
+                    writer.write("Weight        : " + weight + " kg\n");
+                    writer.write("Status        : " + status + "\n");
+                    writer.write("Date          : " + date + "\n");
+                    writer.write("================================\n");
+                } catch (IOException e) {
+                    System.err.println("Failed to write invoice for " + name + ": " + e.getMessage());
+                }
+            }
+
+            System.out.println("All invoices generated successfully in: " + invoiceDir.getAbsolutePath());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     // Add parcel from clear after submit button
     private void clearForm() {
         name_textField.clear();
@@ -443,4 +496,5 @@ public class User_Controller {
         System.out.println("Input reset.");
     }
 
+    // 
 }
