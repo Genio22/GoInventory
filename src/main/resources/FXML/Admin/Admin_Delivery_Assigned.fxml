@@ -30,6 +30,12 @@
          <children>
             <VBox prefHeight="85.0" prefWidth="514.0" spacing="10.0">
                <children>
+                  <VBox prefHeight="85.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Invoice no" wrappingWidth="88.6171875" />
+                        <TextField fx:id="Invoice_no_search" prefWidth="514.0" />
+                     </children>
+                  </VBox>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Delivery Assign" />
                   <ComboBox fx:id="DeliveryManAssign_combox" prefHeight="26.0" prefWidth="555.0" promptText="Shanto" />
                </children>
