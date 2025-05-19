@@ -69,7 +69,7 @@
       </VBox>
 
       <!-- Inventory Summary Section -->
-      <VBox layoutX="79.0" layoutY="453.0" prefHeight="228.0" prefWidth="376.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="79.0">
+      <VBox layoutX="79.0" layoutY="453.0" prefHeight="228.0" prefWidth="376.0" visible="false" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="79.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Summary" wrappingWidth="104.083984375" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="AnchorPane1">
@@ -84,7 +84,7 @@
       </VBox>
 
       <!-- Sales Order Summary Section -->
-      <VBox layoutX="491.0" layoutY="445.0" prefHeight="244.0" prefWidth="579.0" AnchorPane.bottomAnchor="70.0" AnchorPane.rightAnchor="66.0">
+      <VBox layoutX="491.0" layoutY="445.0" prefHeight="244.0" prefWidth="579.0" visible="false" AnchorPane.bottomAnchor="70.0" AnchorPane.rightAnchor="66.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Order Summary (in BDT)" />
             <BarChart>

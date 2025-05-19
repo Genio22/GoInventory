@@ -13,6 +13,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class Login_Controller implements Initializable {
@@ -35,27 +38,45 @@ public class Login_Controller implements Initializable {
     void signin_click(MouseEvent event) {
         username = user_text.getText();
         password = pass_text.getText();
+        
+        String sql = "SELECT * FROM Role_login WHERE username = ? AND password = ? ";
 
-        if ("Admin".equals(username) && "admin".equals(password)) {
-            System.out.println("Login Successful");
-            System.out.println("Username: " + username + " Password: " + password);
-            System.out.println("Welcome Admin");
+        try (Connection conn = DB.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+         
+             stmt.setString(1, username);
+            stmt.setString(2, password); 
+        
 
-            // Open admin window
-            Adminview();
-        }else if("user".equals(username) && "123".equals(password)){
-            System.out.println("Login Successful");
-            System.out.println("Username: " + username + " Password: " + password);
-            System.out.println("Welcome user");
+           
+            ResultSet rs = stmt.executeQuery();
 
-            // Open user window
-            UserView();
-        } 
-        else {
-            System.out.println("Invalid credentials. Access denied.");
-            System.out.println("Username: " + username + " Password: " + password);
-            error_alert.setText("Invalid credentials. Access denied.");
+
+            if (rs.next()) {
+            String role = rs.getString("role");
+            if ("admin".equalsIgnoreCase(role)) {
+                Adminview();
+            } else if ("user".equalsIgnoreCase(role)) {
+                UserView();
+            } else {
+                System.out.println("Unknown role: " + role);
+            }
+        } else {
+            System.out.println("Invalid username or password.");
         }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+       
+        }
+        
+        //     UserView();
+        // } 
+        // else {
+        //     System.out.println("Invalid credentials. Access denied.");
+        //     System.out.println("Username: " + username + " Password: " + password);
+        //     error_alert.setText("Invalid credentials. Access denied.");
+        // }
     }
 
     @FXML

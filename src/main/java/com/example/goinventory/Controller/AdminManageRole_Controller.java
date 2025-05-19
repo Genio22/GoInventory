@@ -1,9 +1,5 @@
 package com.example.goinventory.Controller;
 
-<<<<<<< Updated upstream
-import com.example.goinventory.Model.Employee;
-import com.example.goinventory.Database.DB;
-=======
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,36 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-import com.example.goinventory.Database.DB;
-import com.example.goinventory.Model.Employee;
 
+import com.example.goinventory.Model.Employee;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
->>>>>>> Stashed changes
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-<<<<<<< Updated upstream
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-
-import java.sql.*;
-
-public class AdminManageRole_Controller {
-
-    @FXML private TableView<Employee> employeeTable;
-    @FXML private TableColumn<Employee, Integer> ID;
-    @FXML private TableColumn<Employee, String> Name;
-    @FXML private TableColumn<Employee, String> MobileNumber;
-    @FXML private TableColumn<Employee, String> Email;
-
-    @FXML private TextField name_textField, mobileNumber_textField, Email_textField, salary_textField;
-    @FXML private ComboBox<String> location_comboBox, workingStatus_comboBox;
-    @FXML private Button save, update, reset, close;
-
-=======
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -73,38 +47,21 @@ public class AdminManageRole_Controller {
     @FXML
     private Button save, update, reset, close;
  
->>>>>>> Stashed changes
     private final ObservableList<Employee> employeeList = FXCollections.observableArrayList();
     private Connection connection;
     private int selectedEmployeeId = -1;
 
     @FXML
-<<<<<<< Updated upstream
-    public void initialize() {
-        try {
-            connection = DB.getConnection();
-        } catch (SQLException e) {
-            showAlert("Database Error", e.getMessage());
-=======
     public void initialize() throws ClassNotFoundException {
         try {
             connection = DB.getConnection();
         } catch (SQLException e) {
              e.getMessage();
->>>>>>> Stashed changes
             return;
         }
 
         setupTable();
         loadEmployees();
-<<<<<<< Updated upstream
-        location_comboBox.getItems().addAll("New York", "Los Angeles", "Chicago", "Dhaka", "Sylhet");
-        workingStatus_comboBox.getItems().addAll("Active", "Inactive", "On Leave");
-
-        employeeTable.setOnMouseClicked(e -> populateFields());
-    }
-
-=======
 
         location_comboBox.getItems().addAll("Danmondhi", "Narangang", "cumilla", "Dhaka", "Sylhet");
         workingStatus_comboBox.getItems().addAll("Active", "Inactive", "On Leave");
@@ -114,7 +71,6 @@ public class AdminManageRole_Controller {
 
    
 
->>>>>>> Stashed changes
     private void setupTable() {
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
         Name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -125,11 +81,7 @@ public class AdminManageRole_Controller {
 
     private void loadEmployees() {
         employeeList.clear();
-<<<<<<< Updated upstream
-        String query = "SELECT * FROM employees";
-=======
         String query = "SELECT * FROM Role_login";
->>>>>>> Stashed changes
         try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 employeeList.add(new Employee(
@@ -138,114 +90,16 @@ public class AdminManageRole_Controller {
                         rs.getString("mobile_number"),
                         rs.getString("email"),
                         rs.getString("location"),
-<<<<<<< Updated upstream
-                        rs.getString("working_status"),
-=======
                         rs.getString("status"),
->>>>>>> Stashed changes
                         rs.getDouble("salary")
                 ));
             }
         } catch (SQLException e) {
-<<<<<<< Updated upstream
-            showAlert("Load Error", e.getMessage());
-=======
            e.printStackTrace();
->>>>>>> Stashed changes
         }
     }
 
     @FXML
-<<<<<<< Updated upstream
-    private void handleSave(ActionEvent event) {
-        String query = "INSERT INTO employees (name, mobile_number, email, location, working_status, salary) VALUES (?, ?, ?, ?, ?, ?)";
-
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, name_textField.getText());
-            ps.setString(2, mobileNumber_textField.getText());
-            ps.setString(3, Email_textField.getText());
-            ps.setString(4, location_comboBox.getValue());
-            ps.setString(5, workingStatus_comboBox.getValue());
-            ps.setDouble(6, Double.parseDouble(salary_textField.getText()));
-            ps.executeUpdate();
-
-            showAlert("Success", "Employee added successfully.");
-            loadEmployees();
-            clearFields();
-        } catch (SQLException e) {
-            showAlert("Insert Error", e.getMessage());
-        }
-    }
-
-    @FXML
-    private void handleUpdate(ActionEvent event) {
-        if (selectedEmployeeId == -1) {
-            showAlert("No Selection", "Please select an employee to update.");
-            return;
-        }
-
-        String query = "UPDATE employees SET name=?, mobile_number=?, email=?, location=?, working_status=?, salary=? WHERE id=?";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, name_textField.getText());
-            ps.setString(2, mobileNumber_textField.getText());
-            ps.setString(3, Email_textField.getText());
-            ps.setString(4, location_comboBox.getValue());
-            ps.setString(5, workingStatus_comboBox.getValue());
-            ps.setDouble(6, Double.parseDouble(salary_textField.getText()));
-            ps.setInt(7, selectedEmployeeId);
-            ps.executeUpdate();
-
-            showAlert("Success", "Employee updated successfully.");
-            loadEmployees();
-            clearFields();
-        } catch (SQLException e) {
-            showAlert("Update Error", e.getMessage());
-        }
-    }
-
-    @FXML
-    private void handleReset(ActionEvent event) {
-        clearFields();
-    }
-
-    @FXML
-    private void handleClose(ActionEvent event) {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
-    }
-
-    private void populateFields() {
-        Employee emp = employeeTable.getSelectionModel().getSelectedItem();
-        if (emp != null) {
-            selectedEmployeeId = emp.getId();
-            name_textField.setText(emp.getName());
-            mobileNumber_textField.setText(emp.getMobileNumber());
-            Email_textField.setText(emp.getEmail());
-            location_comboBox.setValue(emp.getLocation());
-            workingStatus_comboBox.setValue(emp.getWorkingStatus());
-            salary_textField.setText(String.valueOf(emp.getSalary()));
-        }
-    }
-
-    private void clearFields() {
-        selectedEmployeeId = -1;
-        name_textField.clear();
-        mobileNumber_textField.clear();
-        Email_textField.clear();
-        location_comboBox.getSelectionModel().clearSelection();
-        workingStatus_comboBox.getSelectionModel().clearSelection();
-        salary_textField.clear();
-    }
-
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-}
-=======
 void handleClose(ActionEvent event) {
     Stage stage = (Stage) close.getScene().getWindow();
     stage.close();
@@ -370,4 +224,3 @@ private void showAlert(String message) {
 
     
 }
->>>>>>> Stashed changes

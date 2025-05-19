@@ -15,19 +15,6 @@
 </center>
 <top>
     <AnchorPane prefHeight="85.0" prefWidth="1365.0" styleClass="grid" stylesheets="@../../Style/Design.css" BorderPane.alignment="CENTER">
-<<<<<<< Updated upstream
-        <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="1248.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="21.0">
-            <Image url="@../../Image/Logo/profile.png" />
-        </ImageView>
-        <ImageView fitHeight="60.0" fitWidth="377.0" layoutX="108.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="13.0">
-            <Image url="@../../Image/Logo/logotxt.png" />
-        </ImageView>
-        <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="45.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="19.0">
-            <Image url="@../../Image/Logo/icon.png" />
-        </ImageView>
-        <Button fx:id="logout_button" layoutX="1152.0" layoutY="31.0" mnemonicParsing="false" onAction="#onlogout_button" text="Logout" />
-
-=======
         <children>
             <ImageView fitHeight="47.0" fitWidth="71.0" layoutX="1248.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="profile_icon" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="21.0">
                 <image>
@@ -47,7 +34,6 @@
             <Button fx:id="logout_button" layoutX="1152.0" layoutY="31.0" mnemonicParsing="false" onAction="#onlogout_button" text="Logout" />
 
         </children>
->>>>>>> Stashed changes
     </AnchorPane>
 </top>
 

@@ -3,8 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -13,71 +11,44 @@
 <AnchorPane prefHeight="680.0" prefWidth="229.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.AdminMenuController">
    <AnchorPane layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="656.0" prefWidth="229.0" styleClass="AnchorPane1" stylesheets="@../../Style/Design.css">
       <VBox layoutX="13.0" layoutY="102.0" prefHeight="238.0" prefWidth="203.0" styleClass="menu">
-         <Button fx:id="Dashboard_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="224.0" text="Dashboard"
-                 textAlignment="CENTER">
+         <Button fx:id="Dashboard_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="224.0" text="Dashboard" textAlignment="CENTER">
             <font>
-               <Font size="14.0"/>
+               <Font size="14.0" />
             </font>
             <graphic>
-               <FontAwesomeIconView glyphName="HOME"/>
+               <FontAwesomeIconView glyphName="HOME" />
             </graphic>
          </Button>
-         <Button fx:id="Manage_Users_Role_button" mnemonicParsing="false" prefHeight="42.0" prefWidth="220.0"
-                 text="Manage Users &amp; Roles" textAlignment="CENTER">
+         <Button fx:id="Manage_Users_Role_button" mnemonicParsing="false" prefHeight="42.0" prefWidth="220.0" text="Manage Users &amp; Roles" textAlignment="CENTER">
             <font>
-               <Font size="14.0"/>
+               <Font size="14.0" />
             </font>
             <graphic>
-               <FontAwesomeIconView glyphName="USER"/>
+               <FontAwesomeIconView glyphName="USER" />
             </graphic>
          </Button>
-         <MenuButton fx:id="Product_Inventory_button" mnemonicParsing="false" prefHeight="46.0" prefWidth="211.0"
-                     text="Product &amp; Inventory" textAlignment="CENTER">
-            <items>
-               <MenuItem fx:id="View_Products_button" mnemonicParsing="false" text="View Products"/>
-               <MenuItem fx:id="Edit_Product_button" mnemonicParsing="false" text="Edit Product"/>
-               <MenuItem fx:id="Adjust_Stock_Level_button" mnemonicParsing="false" text="Adjust Stock Levels"/>
-               <MenuItem fx:id="View_Stock_Levels_Locations_button" mnemonicParsing="false"
-                         text="View Stock Levels &amp; Locations"/>
-            </items>
+         <Button fx:id="AssignDelivery_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="241.0" text="Assign Delivery" textAlignment="CENTER">
             <font>
-               <Font size="14.0"/>
+               <Font size="14.0" />
             </font>
-            <graphic>
-               <FontAwesomeIconView glyphName="CUBES" wrappingWidth="16.0"/>
-            </graphic>
-         </MenuButton>
-         <MenuButton fx:id="Order_Management_button" mnemonicParsing="false" prefHeight="43.0" prefWidth="221.0"
-                     text="Order Management" textAlignment="CENTER">
-            <items>
-               <MenuItem fx:id="View_Order_button" mnemonicParsing="false" text="View Order"/>
-               <MenuItem fx:id="Update_Order_Status_button" mnemonicParsing="false" text="Update Order Status"/>
-               <MenuItem fx:id="O_Adjust_Stock_Levels_button" mnemonicParsing="false" text="Adjust Stock Levels"/>
-            </items>
+         </Button>
+         <Button fx:id="Product_Inventory_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="241.0" text="Product &amp; Inventory" textAlignment="CENTER">
             <font>
-               <Font size="14.0"/>
+               <Font size="14.0" />
             </font>
-            <graphic>
-               <FontAwesomeIconView glyphName="SHOPPING_CART"/>
-            </graphic>
-         </MenuButton>
-         <Button fx:id="Invoices_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="241.0" text="Invoices"
-                 textAlignment="CENTER">
+         </Button>
+         <Button fx:id="View_Order_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="241.0" text="Order Management" textAlignment="CENTER">
             <font>
-               <Font size="14.0"/>
+               <Font size="14.0" />
             </font>
-            <graphic>
-               <FontAwesomeIconView glyphName="FILE_TEXT"/>
-            </graphic>
          </Button>
       </VBox>
       <VBox layoutX="33.0" layoutY="455.0" prefHeight="147.0" prefWidth="163.0" styleClass="suggestion-box">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Report Suggestion/Bugs"
-               wrappingWidth="136.029296875"/>
-         <Label prefHeight="23.0" prefWidth="172.0" text="Use this to report bugs"/>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Report Suggestion/Bugs" wrappingWidth="136.029296875" />
+         <Label prefHeight="23.0" prefWidth="172.0" text="Use this to report bugs" />
          <Button fx:id="report_button" mnemonicParsing="false" text="Button">
             <graphic>
-               <FontAwesomeIconView glyphName="PLUS"/>
+               <FontAwesomeIconView glyphName="PLUS" />
             </graphic>
          </Button>
       </VBox>
