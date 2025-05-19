@@ -292,7 +292,7 @@
          </columns>
       </TableView>
    </AnchorPane>
-   <AnchorPane fx:id="AddproductFrame" layoutX="254.0" layoutY="112.0" maxHeight="768.0" prefHeight="654.0" prefWidth="946.0">
+   <AnchorPane fx:id="AddproductFrame" layoutX="254.0" layoutY="112.0" maxHeight="768.0" prefHeight="654.0" prefWidth="946.0" visible="false">
       <children>
          <TableView layoutX="26.0" layoutY="89.0" prefHeight="526.0" prefWidth="498.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="89.0">
             <columns>

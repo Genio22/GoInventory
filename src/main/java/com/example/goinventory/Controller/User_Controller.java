@@ -139,6 +139,7 @@ public class User_Controller {
     public void buttonAction(ActionEvent e) {
         Dashbordfarme.setVisible(true);
         AddParcelframe.setVisible(false);
+        Deliverdframe.setVisible(false);
         paindingframe.setVisible(false);
         AddproductFrame.setVisible(false);
         ManageCategoryframe.setVisible(false);
