@@ -35,12 +35,12 @@
          <TextField fx:id="Email_textField" prefWidth="334.0" />
       </VBox>
       <VBox prefHeight="65.0" prefWidth="514.0">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username"/>
-         <ComboBox fx:id="username_comboBox" prefHeight="26.0" prefWidth="538.0" promptText="ahnaf23"/>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+         <TextField fx:id="username_textFild" prefWidth="334.0" />
       </VBox>
       <VBox prefHeight="65.0" prefWidth="514.0">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Role"/>
-         <ComboBox fx:id="Role_comboBox" prefHeight="26.0" prefWidth="538.0" promptText="Staff"/>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
+         <ComboBox fx:id="Role_comboBox" prefHeight="26.0" prefWidth="538.0" promptText="Staff" />
       </VBox>
       <VBox prefHeight="65.0" prefWidth="514.0">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />

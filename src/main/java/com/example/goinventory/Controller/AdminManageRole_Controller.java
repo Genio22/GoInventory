@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 import com.example.goinventory.Database.DB;
 import com.example.goinventory.Model.Employee;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,9 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class AdminManageRole_Controller {
-
-    public ComboBox username_comboBox;
-    public ComboBox Role_comboBox;
+   
     @FXML
     private TableView<Employee> employeeTable;
     @FXML
@@ -36,34 +37,40 @@ public class AdminManageRole_Controller {
     private TableColumn<Employee, String> MobileNumber;
     @FXML
     private TableColumn<Employee, String> Email;
+    @FXML
+    private TableColumn<Employee, String>  username;
+   
 
     @FXML
-    private TextField name_textField, mobileNumber_textField, Email_textField, salary_textField;
+    private TextField name_textField, mobileNumber_textField, Email_textField, salary_textField,username_textFild;
     @FXML
-    private ComboBox<String> location_comboBox, workingStatus_comboBox;
+    private ComboBox<String> location_comboBox, workingStatus_comboBox, Role_comboBox;
     @FXML
     private Button save, update, reset, close;
-
+ 
     private final ObservableList<Employee> employeeList = FXCollections.observableArrayList();
     private Connection connection;
     private int selectedEmployeeId = -1;
 
     @FXML
-    public void initialize() {
+    public void initialize() throws ClassNotFoundException {
         try {
             connection = DB.getConnection();
         } catch (SQLException e) {
-            showAlert("Database Error", e.getMessage());
+             e.getMessage();
             return;
         }
 
         setupTable();
         loadEmployees();
-        location_comboBox.getItems().addAll("New York", "Los Angeles", "Chicago", "Dhaka", "Sylhet");
-        workingStatus_comboBox.getItems().addAll("Active", "Inactive", "On Leave");
 
-        employeeTable.setOnMouseClicked(e -> populateFields());
+        location_comboBox.getItems().addAll("Danmondhi", "Narangang", "cumilla", "Dhaka", "Sylhet");
+        workingStatus_comboBox.getItems().addAll("Active", "Inactive", "On Leave");
+        Role_comboBox.getItems().addAll("admin", "user", "aka","tas");
+        
     }
+
+   
 
     private void setupTable() {
         ID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -75,7 +82,7 @@ public class AdminManageRole_Controller {
 
     private void loadEmployees() {
         employeeList.clear();
-        String query = "SELECT * FROM employees";
+        String query = "SELECT * FROM Role_login";
         try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 employeeList.add(new Employee(
@@ -84,101 +91,137 @@ public class AdminManageRole_Controller {
                         rs.getString("mobile_number"),
                         rs.getString("email"),
                         rs.getString("location"),
-                        rs.getString("working_status"),
+                        rs.getString("status"),
                         rs.getDouble("salary")
                 ));
             }
         } catch (SQLException e) {
-            showAlert("Load Error", e.getMessage());
+           e.printStackTrace();
         }
     }
 
     @FXML
-    private void handleSave(ActionEvent event) {
-        String query = "INSERT INTO employees (name, mobile_number, email, location, working_status, salary) VALUES (?, ?, ?, ?, ?, ?)";
+void handleClose(ActionEvent event) {
+    Stage stage = (Stage) close.getScene().getWindow();
+    stage.close();
+}
 
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, name_textField.getText());
-            ps.setString(2, mobileNumber_textField.getText());
-            ps.setString(3, Email_textField.getText());
-            ps.setString(4, location_comboBox.getValue());
-            ps.setString(5, workingStatus_comboBox.getValue());
-            ps.setDouble(6, Double.parseDouble(salary_textField.getText()));
-            ps.executeUpdate();
-
-            showAlert("Success", "Employee added successfully.");
-            loadEmployees();
-            clearFields();
-        } catch (SQLException e) {
-            showAlert("Insert Error", e.getMessage());
-        }
-    }
 
     @FXML
-    private void handleUpdate(ActionEvent event) {
-        if (selectedEmployeeId == -1) {
-            showAlert("No Selection", "Please select an employee to update.");
+void handleReset(ActionEvent event) {
+    resetForm();
+}
+
+private void resetForm() {
+    name_textField.clear();
+    mobileNumber_textField.clear();
+    Email_textField.clear();
+    username_textFild.clear();
+    salary_textField.clear();
+    location_comboBox.getSelectionModel().clearSelection();
+    workingStatus_comboBox.getSelectionModel().clearSelection();
+}
+
+
+    @FXML
+void handleSave(ActionEvent event) {
+    String name = name_textField.getText();
+    String mobile = mobileNumber_textField.getText();
+    String email = Email_textField.getText();
+    String role = Role_comboBox.getValue();
+    String username = username_textFild.getText();
+    String location = location_comboBox.getValue();
+    String status = workingStatus_comboBox.getValue();
+    double salary = Double.parseDouble(salary_textField.getText());
+
+   
+    String checkQuery = "SELECT COUNT(*) FROM Role_login WHERE username = ?";
+    try (PreparedStatement checkStmt = connection.prepareStatement(checkQuery)) {
+        checkStmt.setString(1, username);
+        ResultSet rs = checkStmt.executeQuery();
+        rs.next();
+        if (rs.getInt(1) > 0) {
+            showAlert("Username already exists. Please choose a different one.");
             return;
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return;
+    }
 
-        String query = "UPDATE employees SET name=?, mobile_number=?, email=?, location=?, working_status=?, salary=? WHERE id=?";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, name_textField.getText());
-            ps.setString(2, mobileNumber_textField.getText());
-            ps.setString(3, Email_textField.getText());
-            ps.setString(4, location_comboBox.getValue());
-            ps.setString(5, workingStatus_comboBox.getValue());
-            ps.setDouble(6, Double.parseDouble(salary_textField.getText()));
-            ps.setInt(7, selectedEmployeeId);
-            ps.executeUpdate();
+   
+    String query = "INSERT INTO Role_login (name, mobile_number, email, role, username, location, status, salary) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+        pstmt.setString(1, name);
+        pstmt.setString(2, mobile);
+        pstmt.setString(3, email);
+        pstmt.setString(4, role);
+        pstmt.setString(5, username);
+        pstmt.setString(6, location);
+        pstmt.setString(7, status);
+        pstmt.setDouble(8, salary);
+        pstmt.executeUpdate();
 
-            showAlert("Success", "Employee updated successfully.");
-            loadEmployees();
-            clearFields();
-        } catch (SQLException e) {
-            showAlert("Update Error", e.getMessage());
+        loadEmployees();
+        resetForm();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+   @FXML
+void handleUpdate(ActionEvent event) {
+    Employee selected = employeeTable.getSelectionModel().getSelectedItem();
+    if (selected == null) return;
+
+    String username = username_textFild.getText();
+
+    
+    String checkQuery = "SELECT COUNT(*) FROM Role_login WHERE username = ? AND id != ?";
+    try (PreparedStatement checkStmt = connection.prepareStatement(checkQuery)) {
+        checkStmt.setString(1, username);
+        checkStmt.setInt(2, selected.getId());
+        ResultSet rs = checkStmt.executeQuery();
+        rs.next();
+        if (rs.getInt(1) > 0) {
+            showAlert("Username already exists.");
+            return;
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return;
     }
 
-    @FXML
-    private void handleReset(ActionEvent event) {
-        clearFields();
-    }
+   
+    String query = "UPDATE Role_login SET name = ?, mobile_number = ?, email = ?, username = ?, role = ?, location = ?, status = ?, salary = ? WHERE id = ?";
+    try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+        pstmt.setString(1, name_textField.getText());
+        pstmt.setString(2, mobileNumber_textField.getText());
+        pstmt.setString(3, Email_textField.getText());
+        pstmt.setString(4, username);
+        pstmt.setString(5, Role_comboBox.getValue());
+        pstmt.setString(6, location_comboBox.getValue());
+        pstmt.setString(7, workingStatus_comboBox.getValue());
+        pstmt.setDouble(8, Double.parseDouble(salary_textField.getText()));
+        pstmt.setInt(9, selected.getId());
 
-    @FXML
-    private void handleClose(ActionEvent event) {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
+        pstmt.executeUpdate();
+        loadEmployees();
+        resetForm();
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
 
-    private void populateFields() {
-        Employee emp = employeeTable.getSelectionModel().getSelectedItem();
-        if (emp != null) {
-            selectedEmployeeId = emp.getId();
-            name_textField.setText(emp.getName());
-            mobileNumber_textField.setText(emp.getMobileNumber());
-            Email_textField.setText(emp.getEmail());
-            location_comboBox.setValue(emp.getLocation());
-            workingStatus_comboBox.setValue(emp.getWorkingStatus());
-            salary_textField.setText(String.valueOf(emp.getSalary()));
-        }
-    }
+private void showAlert(String message) {
+    Alert alert = new Alert(Alert.AlertType.WARNING);
+    alert.setTitle("Validation Error");
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
+}
 
-    private void clearFields() {
-        selectedEmployeeId = -1;
-        name_textField.clear();
-        mobileNumber_textField.clear();
-        Email_textField.clear();
-        location_comboBox.getSelectionModel().clearSelection();
-        workingStatus_comboBox.getSelectionModel().clearSelection();
-        salary_textField.clear();
-    }
 
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+    
 }

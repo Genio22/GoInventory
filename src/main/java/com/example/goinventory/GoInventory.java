@@ -1,17 +1,20 @@
 package com.example.goinventory;
+
 import com.example.goinventory.Model.Model;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class GoInventory extends Application {
 
-    public static void main(String[] args) {launch(args);}
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-
-         Model.getInstance().getViewFactory().showLoginWindows();
+        Model.getInstance().getViewFactory().showLoginWindows();
 
     }
 

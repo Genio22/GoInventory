@@ -40,4 +40,29 @@
     -fx-text-fill: black;
 }
 
+.pane_dashboard{
+    -fx-background-radius: 10px;
+}
+
+
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-table-cell-border-color: transparent;
+    -fx-control-inner-background: white;
+    -fx-background-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: white;
+    -fx-background-radius: 10px 10px 0 0;
+}
+
+.table-view .table-row-cell:filled:selected {
+    -fx-background-color: white;
+}
 

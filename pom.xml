@@ -11,10 +11,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
+        <java.version>23</java.version>
         <junit.version>5.10.2</junit.version>
     </properties>
-
+   
     <dependencies>
         <!-- JavaFX Dependencies -->
         <dependency>
