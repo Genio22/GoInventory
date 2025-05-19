@@ -83,7 +83,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="Addpoductbtn" mnemonicParsing="false" onAction="#AddProduct" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Add product">
+      <Button fx:id="Addpoductbtn" mnemonicParsing="false" onAction="#AddProduct" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Add Inventory">
          <font>
             <Font size="20.0" />
          </font>
@@ -231,6 +231,26 @@
                      <Font name="Arial" size="25.0" />
                   </font>
                </Button>
+               <Pane layoutX="479.0" layoutY="213.0" prefHeight="58.0" prefWidth="417.0">
+                  <children>
+                     <Text layoutX="38.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                     </Text>
+                     <ComboBox layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="PC" />
+                  </children>
+               </Pane>
+               <Pane layoutX="479.0" layoutY="272.0" prefHeight="58.0" prefWidth="417.0">
+                  <children>
+                     <Text layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                     </Text>
+                     <ComboBox layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="Mac M1" />
+                  </children>
+               </Pane>
             </children>
          </AnchorPane>
       </children>
@@ -272,9 +292,9 @@
          </columns>
       </TableView>
    </AnchorPane>
-   <AnchorPane fx:id="AddproductFrame" layoutX="260.0" layoutY="112.0" maxHeight="768.0" prefHeight="668.0" prefWidth="950.0" visible="false">
+   <AnchorPane fx:id="AddproductFrame" layoutX="254.0" layoutY="112.0" maxHeight="768.0" prefHeight="654.0" prefWidth="946.0">
       <children>
-         <TableView layoutX="54.0" layoutY="88.8" prefHeight="526.0" prefWidth="498.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="89.0">
+         <TableView layoutX="26.0" layoutY="89.0" prefHeight="526.0" prefWidth="498.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="89.0">
             <columns>
                <TableColumn fx:id="ID" prefWidth="70.40002363920212" text="ID" />
                <TableColumn fx:id="Name" maxWidth="4000.0" minWidth="14.0" prefWidth="77.60003662109375" text="Category" />
@@ -331,7 +351,7 @@
          </Label>
       </children>
    </AnchorPane>
-   <AnchorPane fx:id="ManageCategoryframe" layoutX="273.0" layoutY="160.0" prefHeight="499.0" prefWidth="918.0">
+   <AnchorPane fx:id="ManageCategoryframe" layoutX="273.0" layoutY="160.0" prefHeight="499.0" prefWidth="918.0" visible="false">
       <children>
          <VBox layoutX="471.0" layoutY="120.0" prefHeight="258.0" prefWidth="367.0">
             <children>
