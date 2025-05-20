@@ -5,62 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ba8253c-ecc6-4862-ab12-9697a38f9902" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/DeliveryTaskController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/Delivery/Delivery.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/Delivery/Delivery_Task.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/Delivery/Delivery_menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/GoInventory_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/Mail box/Invoice/Ahnaf_1312312_Invoice.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/Mail box/Invoice/akash_24_Invoice.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/Mail box/Invoice/tuhin_125_Invoice.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminManageRole_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminManageRole_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/AdminMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/Login_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/Login_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/Product_Inventory_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/Product_Inventory_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/User_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Controller/User_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Database/DB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Database/inventory_login.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Database/inventory_login.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Database/inventory_role_login0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Database/inventory_user_inventory0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/GoInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/GoInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Model/Database.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/Model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/goinventory/View/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/goinventory/View/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Invoice_View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Invoice_View.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_ManageProduct_View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_ManageProduct_View.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Manage_Role.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Manage_Role.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_View_order.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Admin/Admin_View_order.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Client/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Client/Client.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Client/Client_Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Client/Client_Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Client/Client_Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Client/Client_Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/User/UserDashboar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/User/UserDashboar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/User/UserDashbord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/User/UserDashbord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Style/Design.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Style/Design.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Style/dashborad.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Style/dashborad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Style/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Style/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,21 +23,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Genio22"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Genio22&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Genio22/GoInventory.git",
-    "accountId": "9c0e7418-5a59-4155-b5c3-48612873e243"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Genio22/GoInventory.git&quot;,
+    &quot;accountId&quot;: &quot;9c0e7418-5a59-4155-b5c3-48612873e243&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2xLyEKKyZN0a4xHBp3aMhDwpZUO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -103,8 +49,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ahnaf/Downloads/GoInventory/GoInventory/src/main/resources/FXML",
+    "last_opened_file_path": "C:/Users/ahnaf/Downloads/mysql-connector-java-8.0.25.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -130,6 +77,15 @@
       <recent name="C:\Users\ahnaf\Downloads\GoInventory\GoInventory\src\main\resources\FXML\Delivery" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="GoInventory" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.goinventory.GoInventory" />
+      <module name="GoInventory" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -146,7 +102,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747731535922</updated>
-      <workItem from="1747731536999" duration="4895000" />
+      <workItem from="1747731536999" duration="5868000" />
+      <workItem from="1747737581689" duration="65000" />
+      <workItem from="1747737707323" duration="176000" />
     </task>
     <servers />
   </component>
