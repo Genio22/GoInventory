@@ -1,19 +1,18 @@
 package com.example.goinventory.Controller;
 
-import java.io.BufferedWriter;
 import java.io.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
-import com.example.goinventory.Database.DB;
 import com.example.goinventory.Model.Model;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -23,13 +22,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class User_Controller {
-
+     @FXML
     public Button logout_user;
+     @FXML
     public Button Send_Mail_button;
     @FXML
     private AnchorPane Dashbordfarme;
     @FXML
-    private AnchorPane AddParcelframe;
+    private AnchorPane SandParcelframe;
     @FXML
     private AnchorPane Deliverdframe;
     @FXML
@@ -42,7 +42,7 @@ public class User_Controller {
     @FXML
     private Button dashbtn;
     @FXML
-    private Button addparcelbtn;
+    private Button Sandparcelbtn;
     @FXML
     private Button deliverdbtn;
     @FXML
@@ -51,6 +51,8 @@ public class User_Controller {
     public Button Addpoductbtn;
     @FXML
     public Button ManageCategorybtn;
+
+     // for send parcel
 
     @FXML
     private TextField address_textField;
@@ -80,6 +82,20 @@ public class User_Controller {
     private TextField weight_textField;
     @FXML
     private TextField catagoryNameInput;
+
+   
+     @FXML
+    private TextField quantiryTextFild;
+
+
+@FXML
+    private ComboBox<?> sandParcel_cata_comobox;
+
+    @FXML
+    private ComboBox<?> sandParcel_product_comobox;
+
+
+
     // For Deliverd Table
     @FXML
     private TableView<Order> Oreder_Table1;
@@ -134,11 +150,40 @@ public class User_Controller {
     @FXML
     private TableColumn<ProductCategory, String> catagoryName;
 
+
+    
+// For add product table
+@FXML
+private TableView<ProductInventory> addproductTable;
+
+@FXML
+private TableColumn<ProductInventory, Integer> proId;
+@FXML
+private TableColumn<ProductInventory, String> proName;
+@FXML
+private TableColumn<ProductInventory, String> proCatagry;
+@FXML
+private TableColumn<ProductInventory, Integer> proquantity;
+@FXML
+private TableColumn<ProductInventory, Double> proPrice;
+
+    @FXML
+private ComboBox<Category> CatagoryComobox;
+
+    @FXML
+    private TextField CatNametextfild;
+    @FXML
+    private TextField cataQuantitytextFild;
+    @FXML
+    private TextField cataPricetextFild;
+
+
+
     private Connection connection;
 
     public void buttonAction(ActionEvent e) {
         Dashbordfarme.setVisible(true);
-        AddParcelframe.setVisible(false);
+        SandParcelframe.setVisible(false);
         Deliverdframe.setVisible(false);
         paindingframe.setVisible(false);
         AddproductFrame.setVisible(false);
@@ -182,7 +227,7 @@ public class User_Controller {
         amount2.setCellValueFactory(new PropertyValueFactory<>("amount"));
         weight2.setCellValueFactory(new PropertyValueFactory<>("weight"));
         date2.setCellValueFactory(new PropertyValueFactory<>("date"));
-
+        // catagory table
         catagreyId.setCellValueFactory(new PropertyValueFactory<>("id"));
         catagoryName.setCellValueFactory(new PropertyValueFactory<>("categoryName"));
 
@@ -190,12 +235,13 @@ public class User_Controller {
 
     // Add parcel Ui
     @FXML
-    void addbox(ActionEvent event) {
-        Dashbordfarme.setVisible(false);
-        AddParcelframe.setVisible(true);
+    void SandParcelbtn(ActionEvent event) {
+         Dashbordfarme.setVisible(false);
+        SandParcelframe.setVisible(true);
         Deliverdframe.setVisible(false);
-        AddproductFrame.setVisible(false);
+        paindingframe.setVisible(false);
         ManageCategoryframe.setVisible(false);
+        AddproductFrame.setVisible(false);
         Submit_button(event);
     }
 
@@ -341,7 +387,7 @@ public class User_Controller {
                 Oreder_Table1.setItems(orderList);
             }
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException  e) {
             e.printStackTrace();
         }
     }
@@ -350,7 +396,7 @@ public class User_Controller {
     @FXML
     void Deliverd_button(ActionEvent event) {
         Dashbordfarme.setVisible(false);
-        AddParcelframe.setVisible(false);
+        SandParcelframe.setVisible(false);
         Deliverdframe.setVisible(true);
         paindingframe.setVisible(false);
         AddproductFrame.setVisible(false);
@@ -363,7 +409,7 @@ public class User_Controller {
     @FXML
     void Painding_button(ActionEvent event) {
         Dashbordfarme.setVisible(false);
-        AddParcelframe.setVisible(false);
+        SandParcelframe.setVisible(false);
         Deliverdframe.setVisible(false);
         paindingframe.setVisible(true);
         AddproductFrame.setVisible(false);
@@ -373,12 +419,12 @@ public class User_Controller {
 
     @FXML
     void Managecatagory(ActionEvent event) {
-        Dashbordfarme.setVisible(false);
-        AddParcelframe.setVisible(false);
+         Dashbordfarme.setVisible(false);
+        SandParcelframe.setVisible(false);
         Deliverdframe.setVisible(false);
         paindingframe.setVisible(false);
-        AddproductFrame.setVisible(false);
         ManageCategoryframe.setVisible(true);
+        AddproductFrame.setVisible(false);
 
         catagorySavebtn(event);
         catagoryTableLoad(event);
@@ -387,16 +433,8 @@ public class User_Controller {
 
     }
 
-    @FXML
-    void AddProduct(ActionEvent event) {
-        Dashbordfarme.setVisible(false);
-        AddParcelframe.setVisible(false);
-        Deliverdframe.setVisible(false);
-        paindingframe.setVisible(false);
-        ManageCategoryframe.setVisible(false);
-        AddproductFrame.setVisible(true);
-    }
 
+    
     @FXML
     void catagorySavebtn(ActionEvent event) {
         String sql = "INSERT INTO categories (category_name) VALUES (?)";
@@ -428,11 +466,11 @@ public class User_Controller {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int id = rs.getInt("catagoryId");
                 String name = rs.getString("category_name");
 
                 categoryList.add(new ProductCategory(
-                        rs.getInt("id"),
+                        rs.getInt("catagoryId"),
                         rs.getString("category_name")
                 ));
             }
@@ -467,7 +505,7 @@ public class User_Controller {
             return;
         }
 
-        String sql = "UPDATE categories SET category_name = ? WHERE id = ?";
+        String sql = "UPDATE categories SET category_name = ? WHERE catagoryId = ?";
 
         try (Connection connection = DB.getConnection(); PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
@@ -496,5 +534,210 @@ public class User_Controller {
         System.out.println("Input reset.");
     }
 
-    // 
+    
+
+
+                                                // Add Inventory us starting
+    @FXML
+    void AddProduct(ActionEvent event) {
+        Dashbordfarme.setVisible(false);
+        SandParcelframe.setVisible(false);
+        Deliverdframe.setVisible(false);
+        paindingframe.setVisible(false);
+        ManageCategoryframe.setVisible(false);
+        AddproductFrame.setVisible(true);
+
+        loadCategories();
+        productSave(event);
+        loadProductTable();
+        ProductRecet( event);
+        ProductUpdate( event);
+        productDelete( event);
+
+    }
+
+    
+    private void loadCategories() {
+    String sql = "SELECT catagoryId, category_name FROM categories";
+    try {
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        ObservableList<Category> categoryList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            categoryList.add(new Category(rs.getInt("catagoryId"), rs.getString("category_name")));
+        }
+        CatagoryComobox.setItems(categoryList);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+     @FXML
+    void productSave(ActionEvent event) {
+    String name = CatNametextfild.getText();
+    String quantityStr = cataQuantitytextFild.getText();
+    String priceStr = cataPricetextFild.getText();
+    Category selectedCategory = (Category) CatagoryComobox.getValue();
+
+    
+    if (name.isEmpty() || quantityStr.isEmpty() || priceStr.isEmpty() || selectedCategory == null) {
+        System.out.println("Please fill all fields and select a category.");
+        return;
+    }
+
+    try {
+        int quantity = Integer.parseInt(quantityStr);
+        double price = Double.parseDouble(priceStr);
+        int categoryId = selectedCategory.getId();
+        
+
+        String sql = "INSERT INTO productInventory (name, quantity, price, Ncategory_id) VALUES (?, ?, ?, ?)";
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+
+        pstmt.setString(1, name);
+        pstmt.setInt(2, quantity);
+        pstmt.setDouble(3, price);
+        pstmt.setInt(4, categoryId);
+
+        int rowsInserted = pstmt.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("Product added successfully.");
+          
+        }
+
+    } catch (NumberFormatException e) {
+        System.out.println("Quantity and price must be numeric.");
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    loadProductTable();
+}
+
+// Load product table in add prodrct ui
+
+private void loadProductTable() {
+    ObservableList<ProductInventory> productList = FXCollections.observableArrayList();
+
+    String sql = "SELECT p.id, p.name, p.quantity, p.price, c.catagoryId, c.category_name " +
+                 "FROM productInventory p JOIN categories c ON p.Ncategory_id = c.catagoryId";
+
+    try (PreparedStatement stmt = connection.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
+
+        while (rs.next()) {
+            Category category = new Category(
+                rs.getInt("catagoryId"),
+                rs.getString("category_name")
+            );
+
+            ProductInventory product = new ProductInventory(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getInt("quantity"),
+                rs.getDouble("price"),
+                category
+            );
+
+            productList.add(product);
+        }
+
+        addproductTable.setItems(productList);
+
+        proId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        proName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        proquantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        proPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        proCatagry.setCellValueFactory(cellData ->
+            new SimpleStringProperty(cellData.getValue().getCategory().getCategory())
+        );
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+
+    @FXML
+void ProductRecet(ActionEvent event) {
+    CatNametextfild.clear();
+    cataQuantitytextFild.clear();
+    cataPricetextFild.clear();
+    CatagoryComobox.getSelectionModel().clearSelection();
+    addproductTable.getSelectionModel().clearSelection();
+}
+
+
+    @FXML
+void ProductUpdate(ActionEvent event) {
+    ProductInventory selected = addproductTable.getSelectionModel().getSelectedItem();
+    if (selected == null) {
+        System.out.println("Select a product to update.");
+        return;
+    }
+
+    String name = CatNametextfild.getText();
+    String quantityStr = cataQuantitytextFild.getText();
+    String priceStr = cataPricetextFild.getText();
+    Category selectedCategory = (Category) CatagoryComobox.getValue();
+
+    if (name.isEmpty() || quantityStr.isEmpty() || priceStr.isEmpty() || selectedCategory == null) {
+        System.out.println("Please fill all fields and select a category.");
+        return;
+    }
+
+    try {
+        int quantity = Integer.parseInt(quantityStr);
+        double price = Double.parseDouble(priceStr);
+
+        String sql = "UPDATE productInventory SET name = ?, quantity = ?, price = ?, Ncategory_id = ? WHERE id = ?";
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        pstmt.setString(1, name);
+        pstmt.setInt(2, quantity);
+        pstmt.setDouble(3, price);
+        pstmt.setInt(4, selectedCategory.getId());
+        pstmt.setInt(5, selected.getId());
+
+        int rowsUpdated = pstmt.executeUpdate();
+        if (rowsUpdated > 0) {
+            System.out.println("Product updated.");
+            loadProductTable();
+        }
+
+    } catch (NumberFormatException | SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+    @FXML
+void productDelete(ActionEvent event) {
+    ProductInventory selected = addproductTable.getSelectionModel().getSelectedItem();
+    if (selected == null) {
+        System.out.println("Select a product to delete.");
+        return;
+    }
+
+    try {
+        String sql = "DELETE FROM productInventory WHERE id = ?";
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        pstmt.setInt(1, selected.getId());
+
+        int rowsDeleted = pstmt.executeUpdate();
+        if (rowsDeleted > 0) {
+            System.out.println("Product deleted.");
+            loadProductTable();
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+
+
+
 }

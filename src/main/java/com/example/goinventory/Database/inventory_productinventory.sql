@@ -16,37 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_inventory`
+-- Table structure for table `productinventory`
 --
 
-DROP TABLE IF EXISTS `user_inventory`;
+DROP TABLE IF EXISTS `productinventory`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_inventory` (
-  `invoice_id` int NOT NULL AUTO_INCREMENT,
-  `customer_name` varchar(100) NOT NULL,
-  `phone_number` varchar(15) NOT NULL,
-  `address` text NOT NULL,
-  `district` varchar(50) NOT NULL,
-  `thana` varchar(50) NOT NULL,
-  `note` text,
-  `cod_amount` decimal(10,2) NOT NULL,
-  `invoice_amount` decimal(10,2) DEFAULT NULL,
-  `weight` decimal(6,2) NOT NULL,
-  `status` varchar(20) DEFAULT NULL,
-  `date` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `productinventory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `quantity` int NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `Ncategory_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Ncategory_id` (`Ncategory_id`),
+  CONSTRAINT `productinventory_ibfk_1` FOREIGN KEY (`Ncategory_id`) REFERENCES `categories` (`catagoryId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_inventory`
+-- Dumping data for table `productinventory`
 --
 
-LOCK TABLES `user_inventory` WRITE;
-/*!40000 ALTER TABLE `user_inventory` DISABLE KEYS */;
-INSERT INTO `user_inventory` VALUES (1,'tuhin','125','sada','sdf','sdf','sdf',12.00,520.00,2.00,'Pending',NULL),(2,'tuhin','125','sada','sdf','sdf','sdf',12.00,520.00,2.00,'Pending',NULL),(3,'akash','24','42','fdgd','fdg','dsfasfafdsfsd fsdf',223.00,5336.00,1.00,'deleverd','2025-05-18');
-/*!40000 ALTER TABLE `user_inventory` ENABLE KEYS */;
+LOCK TABLES `productinventory` WRITE;
+/*!40000 ALTER TABLE `productinventory` DISABLE KEYS */;
+INSERT INTO `productinventory` VALUES (1,'fgfd',2,3.00,1);
+/*!40000 ALTER TABLE `productinventory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-19 15:57:41
+-- Dump completed on 2025-05-20  3:02:48

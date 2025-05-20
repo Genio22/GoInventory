@@ -1,6 +1,5 @@
 package com.example.goinventory.Controller;
 
-import com.example.goinventory.Database.DB;
 import com.example.goinventory.Model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,6 +58,8 @@ public class Login_Controller implements Initializable {
                 Adminview();
             } else if ("user".equalsIgnoreCase(role)) {
                 UserView();
+            } else if ("delivery".equalsIgnoreCase(role)) {
+                DeliveryView();
             } else {
                 System.out.println("Unknown role: " + role);
             }
@@ -105,5 +106,11 @@ public class Login_Controller implements Initializable {
         Stage stage = (Stage) signin_button.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showUserWindows();
+    }
+
+    public void DeliveryView(){
+        Stage stage = (Stage) signin_button.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showDeliveryWindows();
     }
 }

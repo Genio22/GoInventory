@@ -68,7 +68,7 @@
             <Insets top="60.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="addparcelbtn" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#addbox" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Add Parcel">
+      <Button fx:id="Sandparcelbtn" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#SandParcelbtn" prefHeight="67.0" prefWidth="356.0" styleClass="button_menu" text="Sand Parcel">
          <font>
             <Font size="20.0" />
          </font>
@@ -96,7 +96,7 @@
    </VBox>
    <AnchorPane fx:id="Dashbordfarme" layoutX="250.0" layoutY="103.0" prefHeight="666.0" prefWidth="950.0" style="-fx-background-color: #e0e0e1;" visible="false" AnchorPane.bottomAnchor="-1.6000000000000227" AnchorPane.leftAnchor="252.8" AnchorPane.rightAnchor="-2.3999999999999773" AnchorPane.topAnchor="102.4">
       <children>
-         <AnchorPane fx:id="dupside" layoutX="-0.20000000000004547" layoutY="-1.0" prefHeight="200.0" prefWidth="948.0" style="-fx-background-color: #87faf0;" styleClass="shadow" stylesheets="@UserDashboar.css">
+         <AnchorPane fx:id="dupside" layoutY="-1.0" prefHeight="206.0" prefWidth="950.0" style="-fx-background-color: #87faf0;" styleClass="shadow" stylesheets="@UserDashboar.css" AnchorPane.bottomAnchor="461.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                <Pane layoutX="73.0" layoutY="24.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #46b8ae;" styleClass="pane_dashboard">
                   <children>
@@ -124,15 +124,15 @@
                </Pane>
             </children>
          </AnchorPane>
-         <AnchorPane fx:id="ddownside" layoutX="1.0" layoutY="198.0" prefHeight="468.0" prefWidth="948.0" style="-fx-background-color: #9ffdf5;" styleClass="shadow" stylesheets="@UserDashboar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.6000000000000227" AnchorPane.topAnchor="198.0">
+         <AnchorPane fx:id="ddownside" layoutX="1.0" layoutY="198.0" prefHeight="468.0" prefWidth="948.0" style="-fx-background-color: #9ffdf5;" styleClass="shadow" stylesheets="@UserDashboar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="198.0">
             <children>
-               <AnchorPane fx:id="pichart" layoutX="16.0" layoutY="15.0" prefHeight="439.0" prefWidth="573.0" style="-fx-background-color: #fff;" styleClass="pane_dashboard" />
-               <AnchorPane fx:id="details" layoutX="604.0" layoutY="15.0" prefHeight="439.0" prefWidth="325.0" style="-fx-background-color: #fff;" styleClass="pane_dashboard" />
+               <AnchorPane fx:id="pichart" layoutX="16.0" layoutY="15.0" prefHeight="438.0" prefWidth="568.0" style="-fx-background-color: #fff;" styleClass="pane_dashboard" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="362.0" AnchorPane.topAnchor="15.0" />
+               <AnchorPane fx:id="details" layoutX="604.0" layoutY="15.0" prefHeight="438.0" prefWidth="326.0" style="-fx-background-color: #fff;" styleClass="pane_dashboard" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" />
             </children>
          </AnchorPane>
       </children>
    </AnchorPane>
-   <AnchorPane fx:id="AddParcelframe" layoutX="253.0" layoutY="102.0" prefHeight="667.0" prefWidth="949.0" AnchorPane.bottomAnchor="-1.6000000000000227" AnchorPane.leftAnchor="252.80000000000007" AnchorPane.rightAnchor="-2.6000000000000227" AnchorPane.topAnchor="102.0">
+   <AnchorPane fx:id="SandParcelframe" layoutX="253.0" layoutY="102.0" prefHeight="667.0" prefWidth="949.0" AnchorPane.bottomAnchor="-1.6000000000000227" AnchorPane.leftAnchor="252.80000000000007" AnchorPane.rightAnchor="-2.6000000000000227" AnchorPane.topAnchor="102.0">
       <children>
          <AnchorPane layoutX="17.0" layoutY="103.2" prefHeight="542.0" prefWidth="919.0" styleClass="anchor_add_parcel" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="103.0">
             <children>
@@ -238,7 +238,7 @@
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <ComboBox layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="PC" />
+                     <ComboBox fx:id="sandParcel_cata_comobox" layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="select catagory" />
                   </children>
                </Pane>
                <Pane layoutX="479.0" layoutY="272.0" prefHeight="58.0" prefWidth="417.0">
@@ -248,7 +248,7 @@
                            <Font size="20.0" />
                         </font>
                      </Text>
-                     <ComboBox layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="Mac M1" />
+                     <ComboBox fx:id="sandParcel_product_comobox" layoutX="167.0" layoutY="14.0" prefHeight="25.0" prefWidth="245.0" promptText="Select Product name" />
                   </children>
                </Pane>
                <Button fx:id="Send_Mail_button" layoutX="357.0" layoutY="451.0" mnemonicParsing="false" onAction="#Submit_button" prefHeight="1.0" prefWidth="171.0" text="Send Mail">
@@ -256,6 +256,16 @@
                      <Font name="Arial" size="25.0" />
                   </font>
                </Button>
+               <Pane layoutX="482.0" layoutY="333.0" prefHeight="58.0" prefWidth="417.0">
+                  <children>
+                     <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantiry">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                     </Text>
+                     <TextField fx:id="quantiryTextFild" layoutX="164.0" layoutY="9.0" prefHeight="40.0" prefWidth="245.0" styleClass="text_field" stylesheets="@../../Style/User.css" />
+                  </children>
+               </Pane>
             </children>
          </AnchorPane>
       </children>
@@ -299,13 +309,13 @@
    </AnchorPane>
    <AnchorPane fx:id="AddproductFrame" layoutX="254.0" layoutY="112.0" maxHeight="768.0" prefHeight="654.0" prefWidth="946.0" visible="false">
       <children>
-         <TableView layoutX="26.0" layoutY="89.0" prefHeight="526.0" prefWidth="498.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="89.0">
+         <TableView fx:id="addproductTable" layoutX="26.0" layoutY="89.0" prefHeight="526.0" prefWidth="498.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="89.0">
             <columns>
-               <TableColumn fx:id="ID" prefWidth="70.40002363920212" text="ID" />
-               <TableColumn fx:id="Name" maxWidth="4000.0" minWidth="14.0" prefWidth="77.60003662109375" text="Category" />
-               <TableColumn fx:id="MobileNumber" maxWidth="4000.0" minWidth="14.0" prefWidth="135.99993896484375" text="Name" />
-               <TableColumn fx:id="Email" maxWidth="4000.0" minWidth="14.0" prefWidth="101.5999755859375" text="Quantity" />
-               <TableColumn fx:id="Email1" maxWidth="4000.0" minWidth="14.0" prefWidth="125.5999755859375" text="Price" />
+               <TableColumn fx:id="proId" prefWidth="70.40002363920212" text="ID" />
+               <TableColumn fx:id="proCatagry" maxWidth="4000.0" minWidth="14.0" prefWidth="77.60003662109375" text="Category" />
+               <TableColumn fx:id="proName" maxWidth="4000.0" minWidth="14.0" prefWidth="135.99993896484375" text="Name" />
+               <TableColumn fx:id="proquantity" maxWidth="4000.0" minWidth="14.0" prefWidth="101.5999755859375" text="Quantity" />
+               <TableColumn fx:id="proPrice" maxWidth="4000.0" minWidth="14.0" prefWidth="125.5999755859375" text="Price" />
             </columns>
          </TableView>
          <VBox layoutX="590.0" layoutY="123.2" prefHeight="499.0" prefWidth="367.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="123.0">
@@ -313,25 +323,25 @@
                <VBox prefHeight="85.0" prefWidth="514.0">
                   <children>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
-                     <ComboBox prefHeight="26.0" prefWidth="555.0" promptText="1- Electronics" />
+                     <ComboBox fx:id="CatagoryComobox" prefHeight="26.0" prefWidth="555.0" promptText="1- Electronics" />
                   </children>
                </VBox>
                <VBox prefHeight="85.0" prefWidth="514.0">
                   <children>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                     <TextField prefWidth="514.0" />
+                     <TextField fx:id="CatNametextfild" prefWidth="514.0" />
                   </children>
                </VBox>
                <VBox prefHeight="85.0" prefWidth="514.0">
                   <children>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
-                     <TextField prefWidth="334.0" />
+                     <TextField fx:id="cataQuantitytextFild" prefWidth="334.0" />
                   </children>
                </VBox>
                <VBox prefHeight="85.0" prefWidth="100.0">
                   <children>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="25.6171875" />
-                     <TextField prefWidth="514.0" />
+                     <TextField fx:id="cataPricetextFild" prefWidth="514.0" />
                      <VBox prefHeight="85.0" prefWidth="100.0">
                         <children>
                            <VBox prefHeight="92.0" prefWidth="514.0" />
@@ -339,12 +349,12 @@
                      </VBox>
                   </children>
                </VBox>
-               <HBox prefHeight="36.0" prefWidth="514.0" spacing="50.0">
+               <HBox prefHeight="36.0" prefWidth="514.0" spacing="20.0">
                   <children>
-                     <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="57.0" text="SAVE" />
-                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" text="Update" />
-                     <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="47.0" text="Reset" />
-                     <Button mnemonicParsing="false" text="Close" />
+                     <Button mnemonicParsing="false" onAction="#productSave" prefHeight="41.0" prefWidth="82.0" text="SAVE" />
+                     <Button mnemonicParsing="false" onAction="#ProductUpdate" prefHeight="40.0" prefWidth="78.0" text="Update" />
+                     <Button mnemonicParsing="false" onAction="#ProductRecet" prefHeight="39.0" prefWidth="70.0" text="Reset" />
+                     <Button mnemonicParsing="false" onAction="#productDelete" prefHeight="39.0" prefWidth="72.0" text="Delete" />
                   </children>
                </HBox>
             </children>
