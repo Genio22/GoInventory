@@ -65,7 +65,7 @@ public class AdminManageRole_Controller {
 
         location_comboBox.getItems().addAll("Danmondhi", "Narangang", "cumilla", "Dhaka", "Sylhet");
         workingStatus_comboBox.getItems().addAll("Active", "Inactive", "On Leave");
-        Role_comboBox.getItems().addAll("admin", "user", "aka","tas");
+        Role_comboBox.getItems().addAll("admin", "user", "Delivary ");
         
     }
 

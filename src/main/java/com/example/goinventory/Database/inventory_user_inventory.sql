@@ -32,11 +32,20 @@ CREATE TABLE `user_inventory` (
   `note` text,
   `cod_amount` decimal(10,2) NOT NULL,
   `invoice_amount` decimal(10,2) DEFAULT NULL,
-  `weight` decimal(6,2) NOT NULL,
+  `quintity` decimal(6,2) NOT NULL,
   `status` varchar(20) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `product_id` int DEFAULT NULL,
+  `userId` int DEFAULT NULL,
+  `deliverdby` varchar(45) DEFAULT NULL,
+  `due_date` varchar(45) DEFAULT NULL,
+  `deliverymanId` int DEFAULT NULL,
+  PRIMARY KEY (`invoice_id`),
+  KEY `fk_product_id` (`product_id`) /*!80000 INVISIBLE */,
+  KEY `fx_deliveryman_id` (`deliverymanId`),
+  CONSTRAINT `fk_product_id` FOREIGN KEY (`product_id`) REFERENCES `productinventory` (`id`),
+  CONSTRAINT `fx_deliveryman_id` FOREIGN KEY (`deliverymanId`) REFERENCES `role_login` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +54,7 @@ CREATE TABLE `user_inventory` (
 
 LOCK TABLES `user_inventory` WRITE;
 /*!40000 ALTER TABLE `user_inventory` DISABLE KEYS */;
-INSERT INTO `user_inventory` VALUES (1,'tuhin','125','sada','sdf','sdf','sdf',12.00,520.00,2.00,'Pending',NULL),(2,'tuhin','125','sada','sdf','sdf','sdf',12.00,520.00,2.00,'Pending',NULL),(3,'akash','24','42','fdgd','fdg','dsfasfafdsfsd fsdf',223.00,5336.00,1.00,'deleverd','2025-05-18');
+INSERT INTO `user_inventory` VALUES (12,'nasim','123','125','dhaka','dhaka','dhaka',400.00,350.00,2.00,'delivered','2025-05-23',6,9,'sajin','5',12),(13,'akash','52','dsfs','d','d','d',800.00,600.00,2.00,'delivered','2025-05-23',7,9,'jisan','3',11),(14,'nasim','dfs','dsdf','d','d','d',500.00,400.00,3.00,'Pending','2025-05-23',8,10,'jisan','2',11);
 /*!40000 ALTER TABLE `user_inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +67,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-19  1:24:37
+-- Dump completed on 2025-05-25 15:43:13

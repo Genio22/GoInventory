@@ -5,6 +5,7 @@ module com.example.goinventory {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.desktop;
     requires org.apache.logging.log4j;
+    requires javafx.graphics;
 
 
     opens com.example.goinventory to javafx.fxml;

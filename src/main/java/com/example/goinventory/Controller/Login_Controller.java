@@ -4,10 +4,7 @@ import com.example.goinventory.Model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -19,6 +16,7 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class Login_Controller implements Initializable {
+    public Hyperlink singup_hyperlink;
     @FXML
     private Label error_alert;
     @FXML
@@ -53,12 +51,16 @@ public class Login_Controller implements Initializable {
 
 
             if (rs.next()) {
+                 int userId = rs.getInt("id"); 
+                 IdStore.setloginId(userId);
+
             String role = rs.getString("role");
             if ("admin".equalsIgnoreCase(role)) {
                 Adminview();
             } else if ("user".equalsIgnoreCase(role)) {
                 UserView();
-            } else if ("delivery".equalsIgnoreCase(role)) {
+                
+            } else if ("Delivary ".equalsIgnoreCase(role)) {
                 DeliveryView();
             } else {
                 System.out.println("Unknown role: " + role);
@@ -72,13 +74,7 @@ public class Login_Controller implements Initializable {
        
         }
         
-        //     UserView();
-        // } 
-        // else {
-        //     System.out.println("Invalid credentials. Access denied.");
-        //     System.out.println("Username: " + username + " Password: " + password);
-        //     error_alert.setText("Invalid credentials. Access denied.");
-        // }
+       
     }
 
     @FXML
@@ -112,5 +108,11 @@ public class Login_Controller implements Initializable {
         Stage stage = (Stage) signin_button.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showDeliveryWindows();
+    }
+
+    public void singup_hyper_act(ActionEvent event) {
+        Stage stage = (Stage) signin_button.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showRegistrationWindows();
     }
 }

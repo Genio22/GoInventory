@@ -93,6 +93,21 @@ public class ViewFactory {
         return AssignDeliveryView;
     }
 
+    public void showRegistrationWindows(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/registration.fxml"));
+            Scene scene = new Scene(loader.load());
+            Image i = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("GoInventory");
+            stage.getIcons().add(i);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void showLoginWindows() {// User: Admin, Pass: admin
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml"));

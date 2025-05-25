@@ -78,8 +78,7 @@ public class User_Controller {
     @FXML
     private TextField thana_textField;
 
-    @FXML
-    private TextField weight_textField;
+    
     @FXML
     private TextField catagoryNameInput;
 
@@ -87,12 +86,12 @@ public class User_Controller {
      @FXML
     private TextField quantiryTextFild;
 
+@FXML
+private ComboBox<Category> sandParcel_cata_comobox;
 
 @FXML
-    private ComboBox<?> sandParcel_cata_comobox;
+private ComboBox<ProductInventory> sandParcel_product_comobox;
 
-    @FXML
-    private ComboBox<?> sandParcel_product_comobox;
 
 
 
@@ -118,7 +117,7 @@ public class User_Controller {
     @FXML
     private TableColumn<Order, String> date1;
 
-    // For Pending Table
+    // For Pending Table 
     @FXML
     private TableView<Order> Order_Table2;
     @FXML
@@ -242,54 +241,78 @@ private ComboBox<Category> CatagoryComobox;
         paindingframe.setVisible(false);
         ManageCategoryframe.setVisible(false);
         AddproductFrame.setVisible(false);
+
+        loadCategoriesIntoComboBox(sandParcel_cata_comobox);
+         setupCategorySelectionHandler();
+        setupProductSelectionHandler();
         Submit_button(event);
+        
+
+        
+        
     }
 
     // Add parcel submit button 
-    @FXML
-    private void Submit_button(ActionEvent event) {
-        String insertQuery = "INSERT INTO user_inventory (customer_name, phone_number, address, district, thana, note, cod_amount, invoice_amount, weight, status, date) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+   int userId = IdStore.getloginId();
+    
+   @FXML
+private void Submit_button(ActionEvent event) {
+    String insertQuery = "INSERT INTO user_inventory (customer_name, phone_number, address, district, thana, note, cod_amount, invoice_amount, quintity, status, date, product_id, userId) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)) {
+    try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)) {
 
-            String name = name_textField.getText();
-            String phone = phone_textField.getText();
-            String address = address_textField.getText();
-            String district = district_textField.getText();
-            String thana = thana_textField.getText();
-            String note = note_textField.getText();
+        String name = name_textField.getText();
+        String phone = phone_textField.getText();
+        String address = address_textField.getText();
+        String district = district_textField.getText();
+        String thana = thana_textField.getText();
+        String note = note_textField.getText();
 
-            double codAmount = Double.parseDouble(codAmount_textField.getText());
-            double invoiceAmount = Double.parseDouble(invoiceAmout_textField.getText());
-            double weight = Double.parseDouble(weight_textField.getText());
-            String status = "Pending";
-            String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        double codAmount = Double.parseDouble(codAmount_textField.getText());
+        double invoiceAmount = Double.parseDouble(invoiceAmout_textField.getText());
+        double quintity = Double.parseDouble(quantiryTextFild.getText());
+        String status = "Pending";
+        String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-            pstmt.setString(1, name);
-            pstmt.setString(2, phone);
-            pstmt.setString(3, address);
-            pstmt.setString(4, district);
-            pstmt.setString(5, thana);
-            pstmt.setString(6, note);
-            pstmt.setDouble(7, codAmount);
-            pstmt.setDouble(8, invoiceAmount);
-            pstmt.setDouble(9, weight);
-            pstmt.setString(10, status);
-            pstmt.setString(11, date);
-
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println(" Invoice added successfully!");
-                clearForm();
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.err.println(" Please enter valid numeric values for COD, invoice amount, and weight.");
+        // Get selected product
+        ProductInventory selectedProduct = (ProductInventory) sandParcel_product_comobox.getValue();
+        if (selectedProduct == null) {
+            System.err.println("Please select a product.");
+            return;
         }
+        int productId = selectedProduct.getId();
+   
+        
+       
+     
+        pstmt.setString(1, name);
+        pstmt.setString(2, phone);
+        pstmt.setString(3, address);
+        pstmt.setString(4, district);
+        pstmt.setString(5, thana);
+        pstmt.setString(6, note);
+        pstmt.setDouble(7, codAmount);
+        pstmt.setDouble(8, invoiceAmount);
+        pstmt.setDouble(9, quintity);
+        pstmt.setString(10, status);
+        pstmt.setString(11, date);
+        pstmt.setInt(12, productId);
+        pstmt.setInt(13, userId); 
+
+        int rowsInserted = pstmt.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("Invoice added successfully!");
+            clearForm();
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } catch (NumberFormatException e) {
+        System.err.println("Please enter valid numeric values for COD, invoice amount, and weight.");
     }
+}
+
 
     // Send mail file generate
     public void send_mail(ActionEvent event) {
@@ -309,7 +332,7 @@ private ComboBox<Category> CatagoryComobox;
                 String note = rs.getString("note");
                 double codAmount = rs.getDouble("cod_amount");
                 double invoiceAmount = rs.getDouble("invoice_amount");
-                double weight = rs.getDouble("weight");
+                double quintity = rs.getDouble("quintity");
                 String status = rs.getString("status");
                 String date = rs.getString("date");
 
@@ -328,7 +351,7 @@ private ComboBox<Category> CatagoryComobox;
                     writer.write("Note          : " + note + "\n");
                     writer.write("COD Amount    : " + codAmount + "\n");
                     writer.write("Invoice Amount: " + invoiceAmount + "\n");
-                    writer.write("Weight        : " + weight + " kg\n");
+                    writer.write("Quintity        : " + quintity + " \n");
                     writer.write("Status        : " + status + "\n");
                     writer.write("Date          : " + date + "\n");
                     writer.write("================================\n");
@@ -354,17 +377,19 @@ private ComboBox<Category> CatagoryComobox;
         note_textField.clear();
         codAmount_textField.clear();
         invoiceAmout_textField.clear();
-        weight_textField.clear();
+        quantiryTextFild.clear();
     }
     // table load for  Deliverd and painding 
 
-    public void tableload(ActionEvent event, String key) {
-        ObservableList<Order> orderList = FXCollections.observableArrayList();
-        String query = "SELECT * FROM user_inventory WHERE status = ?";
+   public void tableload(ActionEvent event, String key, int userId) {
+    ObservableList<Order> orderList = FXCollections.observableArrayList();
+    String query = "SELECT * FROM user_inventory WHERE status = ? AND userId = ?";
 
-        try (Connection connection = DB.getConnection(); PreparedStatement pstmt = connection.prepareStatement(query)) {
+    try (Connection connection = DB.getConnection();
+         PreparedStatement pstmt = connection.prepareStatement(query)) {
 
-            pstmt.setString(1, key);
+        pstmt.setString(1, key);
+        pstmt.setInt(2, userId);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -376,14 +401,14 @@ private ComboBox<Category> CatagoryComobox;
                         rs.getString("district"),
                         rs.getString("note"),
                         rs.getDouble("invoice_amount"),
-                        rs.getDouble("weight"),
+                        rs.getDouble("quintity"),
                         rs.getString("date")
                 ));
             }
 
             if (key.equalsIgnoreCase("Pending")) {
                 Order_Table2.setItems(orderList);
-            } else if (key.equalsIgnoreCase("deleverd")) {
+            } else if (key.equalsIgnoreCase("delivered")) {
                 Oreder_Table1.setItems(orderList);
             }
 
@@ -401,7 +426,7 @@ private ComboBox<Category> CatagoryComobox;
         paindingframe.setVisible(false);
         AddproductFrame.setVisible(false);
         ManageCategoryframe.setVisible(false);
-        tableload(event, "deleverd");
+        tableload(event, "delivered" , userId);
 
     }
 
@@ -414,7 +439,7 @@ private ComboBox<Category> CatagoryComobox;
         paindingframe.setVisible(true);
         AddproductFrame.setVisible(false);
         ManageCategoryframe.setVisible(false);
-        tableload(event, "Pending");
+        tableload(event, "Pending" , userId);
     }
 
     @FXML
@@ -547,7 +572,7 @@ private ComboBox<Category> CatagoryComobox;
         ManageCategoryframe.setVisible(false);
         AddproductFrame.setVisible(true);
 
-        loadCategories();
+        loadCategoriesIntoComboBox(CatagoryComobox);
         productSave(event);
         loadProductTable();
         ProductRecet( event);
@@ -557,7 +582,7 @@ private ComboBox<Category> CatagoryComobox;
     }
 
     
-    private void loadCategories() {
+    private void loadCategoriesIntoComboBox(ComboBox<Category> comboBox) {
     String sql = "SELECT catagoryId, category_name FROM categories";
     try {
         PreparedStatement stmt = connection.prepareStatement(sql);
@@ -565,14 +590,18 @@ private ComboBox<Category> CatagoryComobox;
 
         ObservableList<Category> categoryList = FXCollections.observableArrayList();
         while (rs.next()) {
-            categoryList.add(new Category(rs.getInt("catagoryId"), rs.getString("category_name")));
+            categoryList.add(new Category(
+                rs.getInt("catagoryId"),
+                rs.getString("category_name")));
         }
-        CatagoryComobox.setItems(categoryList);
+
+        comboBox.setItems(categoryList);
 
     } catch (SQLException e) {
         e.printStackTrace();
     }
 }
+
 
      @FXML
     void productSave(ActionEvent event) {
@@ -737,6 +766,50 @@ void productDelete(ActionEvent event) {
 }
 
 
+
+
+private void loadProductsByCategory(Category category) {
+    ObservableList<ProductInventory> products = FXCollections.observableArrayList();
+    String sql = "SELECT * FROM productInventory WHERE Ncategory_id = ?";
+
+    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        stmt.setInt(1, category.getId());
+
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            products.add(new ProductInventory(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getInt("quantity"),
+                rs.getDouble("price"),
+                category
+            ));
+        }
+
+        sandParcel_product_comobox.setItems(products);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+private void setupProductSelectionHandler() {
+    sandParcel_product_comobox.setOnAction(event -> {
+        ProductInventory selectedProduct = sandParcel_product_comobox.getValue();
+        if (selectedProduct != null) {
+            invoiceAmout_textField.setText(String.valueOf(selectedProduct.getPrice()));
+        }
+    });
+}
+private void setupCategorySelectionHandler() {
+    sandParcel_cata_comobox.setOnAction(event -> {
+        Category selectedCategory = sandParcel_cata_comobox.getValue();
+        if (selectedCategory != null) {
+            loadProductsByCategory(selectedCategory);
+        }
+    });
+}
 
 
 

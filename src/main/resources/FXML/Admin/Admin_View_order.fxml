@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,25 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.AdminViewOrder_controler">
    <Label layoutX="473.0" layoutY="25.0" text="View Order" textAlignment="CENTER">
       <font>
          <Font name="Arial Bold" size="36.0" />
       </font>
    </Label>
-   <TableView layoutX="572.0" layoutY="101.0" prefHeight="527.0" prefWidth="530.0">
+   <TableView fx:id="Product_Table" layoutX="572.0" layoutY="101.0" prefHeight="527.0" prefWidth="530.0">
       <columns>
-         <TableColumn fx:id="OrderId" prefWidth="178.0" text="Order ID" />
+         <TableColumn fx:id="Pproduct_Id" prefWidth="178.0" text="Product Id" />
          <TableColumn fx:id="Date" maxWidth="4000.0" minWidth="14.0" prefWidth="183.0" text="Date" />
-         <TableColumn fx:id="TotalPaid" maxWidth="4000.0" minWidth="14.0" prefWidth="168.0" text="Total Paid" />
+         <TableColumn fx:id="pAmount" maxWidth="4000.0" minWidth="14.0" prefWidth="168.0" text="Amount" />
       </columns>
    </TableView>
-   <TableView layoutX="27.0" layoutY="101.0" prefHeight="527.0" prefWidth="514.0">
+   <TableView fx:id="customer_Table" layoutX="27.0" layoutY="101.0" prefHeight="527.0" prefWidth="514.0">
       <columns>
-         <TableColumn fx:id="ID" prefWidth="95.0" text="ID" />
-         <TableColumn fx:id="Name" maxWidth="4000.0" minWidth="14.0" prefWidth="115.0" text="Name" />
-         <TableColumn fx:id="MobileNumber" maxWidth="4000.0" minWidth="14.0" prefWidth="148.0" text="Mobile Number" />
-         <TableColumn fx:id="Email" maxWidth="4000.0" minWidth="14.0" prefWidth="155.0" text="Email" />
+         <TableColumn fx:id="cId" prefWidth="95.0" text="ID" />
+         <TableColumn fx:id="cname" maxWidth="4000.0" minWidth="14.0" prefWidth="115.0" text="Name" />
+         <TableColumn fx:id="cNumber" maxWidth="4000.0" minWidth="14.0" prefWidth="148.0" text="Mobile Number" />
+         <TableColumn fx:id="cEmail" maxWidth="4000.0" minWidth="14.0" prefWidth="155.0" text="Email" />
       </columns>
    </TableView>
    <ButtonBar layoutX="874.0" layoutY="714.0" prefHeight="40.0" prefWidth="200.0" />
@@ -40,5 +39,4 @@
          <Font name="Arial Black" size="16.0" />
       </font>
    </Label>
-   <Button layoutX="1052.0" layoutY="641.0" mnemonicParsing="false" text="Close" />
 </AnchorPane>
