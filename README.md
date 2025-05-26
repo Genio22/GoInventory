@@ -13,9 +13,9 @@ GoInventory is a robust inventory and sales management system tailored for busin
   - Signup requires Name, Email, Mobile Number, Username, and Password.  
   - Registered users can sign in as user, admin, or delivery man.
 
-### Dashboards
 
-#### Admin Dashboard
+
+#### Admin Interface
 - **Navigation:**  
   - Fixed Logout button for secure sign out.
 - **Sales Activities:**  
@@ -40,7 +40,7 @@ GoInventory is a robust inventory and sales management system tailored for busin
     1. Customer List (ID, Name, Mobile Number, Email)
     2. Product List (Product ID, Date, Amount)
 
-#### User Dashboard
+#### User Interface
 - **User Panel:**  
   - Quick access to Add Parcel, Pending Amount, Delivery Status, Balance History, Current Balance, and Logout button (fixed on the right).
 - **Send Parcel:**  
