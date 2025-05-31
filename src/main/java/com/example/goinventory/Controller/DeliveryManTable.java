@@ -14,23 +14,26 @@ public class DeliveryManTable {
     private String date;
     private String dueDate;
     private int invoiceId;
-    private String productName; // join with product table if needed
+    private String productName; 
+    private int userId;
 
-    // Constructor
-    public DeliveryManTable(int invoiceId, String customerName, String phoneNumber, String address, String district, double quantity, String status, double invoiceAmount, String dueDate, String productName) {
-        this.invoiceId = invoiceId;
-        this.customerName = customerName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.district = district;
-        this.quantity = quantity;
-        this.status = status;
-        this.invoiceAmount = invoiceAmount;
-        this.dueDate = dueDate;
-        this.productName = productName;
-    }
+   public DeliveryManTable(int invoiceId, String customerName, String phoneNumber, String address,
+                        String district, double quantity, String status, double invoiceAmount,
+                        String dueDate, String productName, int userId) {
+    this.invoiceId = invoiceId;
+    this.customerName = customerName;
+    this.phoneNumber = phoneNumber;
+    this.address = address;
+    this.district = district;
+    this.quantity = quantity;
+    this.status = status;
+    this.invoiceAmount = invoiceAmount;
+    this.dueDate = dueDate;
+    this.productName = productName;
+    this.userId = userId;
+}
 
-    // Getters
+    
     public int getInvoiceId() { return invoiceId; }
     public String getCustomerName() { return customerName; }
     public String getPhoneNumber() { return phoneNumber; }
@@ -41,4 +44,9 @@ public class DeliveryManTable {
     public double getInvoiceAmount() { return invoiceAmount; }
     public String getDueDate() { return dueDate; }
     public String getProductName() { return productName; }
+
+    
+    public int getUserId() {
+        return userId;
+    }
 }

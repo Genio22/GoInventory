@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `inventory` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `inventory`;
 -- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
 -- Host: localhost    Database: inventory
@@ -45,7 +47,7 @@ CREATE TABLE `user_inventory` (
   KEY `fx_deliveryman_id` (`deliverymanId`),
   CONSTRAINT `fk_product_id` FOREIGN KEY (`product_id`) REFERENCES `productinventory` (`id`),
   CONSTRAINT `fx_deliveryman_id` FOREIGN KEY (`deliverymanId`) REFERENCES `role_login` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +56,7 @@ CREATE TABLE `user_inventory` (
 
 LOCK TABLES `user_inventory` WRITE;
 /*!40000 ALTER TABLE `user_inventory` DISABLE KEYS */;
-INSERT INTO `user_inventory` VALUES (12,'nasim','123','125','dhaka','dhaka','dhaka',400.00,350.00,2.00,'delivered','2025-05-23',6,9,'sajin','5',12),(13,'akash','52','dsfs','d','d','d',800.00,600.00,2.00,'delivered','2025-05-23',7,9,'jisan','3',11),(14,'nasim','dfs','dsdf','d','d','d',500.00,400.00,3.00,'Pending','2025-05-23',8,10,'jisan','2',11);
+INSERT INTO `user_inventory` VALUES (12,'nasim','123','125','dhaka','dhaka','dhaka',400.00,350.00,2.00,'Pending','2025-05-23',6,9,'sajin','5',12),(13,'akash','52','dsfs','d','d','d',800.00,600.00,2.00,'delivered','2025-05-23',7,9,'jisan','3',11),(14,'nasim','dfs','dsdf','d','d','d',500.00,400.00,3.00,'Pending','2025-05-23',8,10,'jisan','2',11),(15,'anis','123','a','a','a','a',500.00,350.00,10.00,'Pending','2025-05-25',6,9,'jisan','3',11),(16,'sajin','123','2','2','2','2',600.00,300.00,20.00,'delivered','2025-05-25',9,9,'jisan','3',11),(17,'de','m','m','m','m','m',500.00,300.00,2.00,'Pending','2025-05-25',9,9,'jisan','3',11),(18,'n','1','a','aa','a','a',600.00,300.00,2.00,'delivered','2025-05-26',10,9,'jisan','3',11),(19,'a','d','d','d','d','d',600.00,300.00,2.00,'Pending','2025-05-26',11,9,'jisan','3',11);
 /*!40000 ALTER TABLE `user_inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -67,4 +69,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-25 15:43:13
+-- Dump completed on 2025-05-26 17:05:40

@@ -11,6 +11,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BubbleChart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.ScatterChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -19,6 +24,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class User_Controller {
@@ -51,6 +57,25 @@ public class User_Controller {
     public Button Addpoductbtn;
     @FXML
     public Button ManageCategorybtn;
+
+    @FXML
+    private Text balancetxt;
+
+
+    // Dashboad data
+    @FXML
+    private Text TotalPaingOrder;
+
+    @FXML
+    private Text TotalDeliverd;
+
+    @FXML
+    private Text TotalSandParcel;
+    @FXML
+    private PieChart userPaichart;
+    
+
+  
 
      // for send parcel
 
@@ -151,7 +176,7 @@ private ComboBox<ProductInventory> sandParcel_product_comobox;
 
 
     
-// For add product table
+// For add Inventory table
 @FXML
 private TableView<ProductInventory> addproductTable;
 
@@ -230,7 +255,71 @@ private ComboBox<Category> CatagoryComobox;
         catagreyId.setCellValueFactory(new PropertyValueFactory<>("id"));
         catagoryName.setCellValueFactory(new PropertyValueFactory<>("categoryName"));
 
+        updateBalance();
+        loadUserParcelStats();
+
     }
+
+private void loadUserParcelStats() {
+    int userId = IdStore.getloginId();
+
+    int pendingCount = 0;
+    int deliveredCount = 0;
+    int totalParcels = 0;
+
+    String sql = "SELECT status FROM user_inventory WHERE userId = ?";
+
+    try (
+         PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+        stmt.setInt(1, userId);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            String status = rs.getString("status");
+            totalParcels++;
+            if ("Pending".equalsIgnoreCase(status)) {
+                pendingCount++;
+            } else if ("Delivered".equalsIgnoreCase(status)) {
+                deliveredCount++;
+            }
+        }
+
+        // Set values in Text fields
+        TotalPaingOrder.setText(String.valueOf(pendingCount));
+        TotalDeliverd.setText(String.valueOf(deliveredCount));
+        TotalSandParcel.setText(String.valueOf(totalParcels));
+
+        // Update PieChart
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("Delivered", deliveredCount),
+                new PieChart.Data("Pending", pendingCount),
+                new PieChart.Data("Total", totalParcels)
+        );
+
+        userPaichart.setData(pieChartData);
+        userPaichart.setTitle("Parcel Status");
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+// Balance update
+    public void updateBalance() {
+    String query = "SELECT amount FROM role_login WHERE id = ?";
+
+    try (PreparedStatement ps = connection.prepareStatement(query)) {
+        ps.setInt(1, userId);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            double amount = rs.getDouble("amount");
+            balancetxt.setText(String.format("%.2f", amount));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 
     // Add parcel Ui
     @FXML
@@ -243,7 +332,7 @@ private ComboBox<Category> CatagoryComobox;
         AddproductFrame.setVisible(false);
 
         loadCategoriesIntoComboBox(sandParcel_cata_comobox);
-         setupCategorySelectionHandler();
+        setupCategorySelectionHandler();
         setupProductSelectionHandler();
         Submit_button(event);
         
@@ -254,14 +343,19 @@ private ComboBox<Category> CatagoryComobox;
 
     // Add parcel submit button 
    int userId = IdStore.getloginId();
-    
    @FXML
 private void Submit_button(ActionEvent event) {
     String insertQuery = "INSERT INTO user_inventory (customer_name, phone_number, address, district, thana, note, cod_amount, invoice_amount, quintity, status, date, product_id, userId) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)) {
+    String productInvenQue = "SELECT quantity FROM productinventory WHERE id = ?";
+    String updateproductInvenQue = "UPDATE productinventory SET quantity = quantity - ? WHERE id = ?";
 
+    try (
+        PreparedStatement pstmt = connection.prepareStatement(insertQuery);
+        PreparedStatement selectStmt = connection.prepareStatement(productInvenQue);
+        PreparedStatement updateStmt = connection.prepareStatement(updateproductInvenQue)
+    ) {
         String name = name_textField.getText();
         String phone = phone_textField.getText();
         String address = address_textField.getText();
@@ -271,21 +365,33 @@ private void Submit_button(ActionEvent event) {
 
         double codAmount = Double.parseDouble(codAmount_textField.getText());
         double invoiceAmount = Double.parseDouble(invoiceAmout_textField.getText());
-        double quintity = Double.parseDouble(quantiryTextFild.getText());
+        double quantity = Double.parseDouble(quantiryTextFild.getText());
         String status = "Pending";
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-        // Get selected product
         ProductInventory selectedProduct = (ProductInventory) sandParcel_product_comobox.getValue();
         if (selectedProduct == null) {
             System.err.println("Please select a product.");
             return;
         }
+
         int productId = selectedProduct.getId();
-   
-        
-       
-     
+
+        // Check  quantity
+        selectStmt.setInt(1, productId);
+        ResultSet rs = selectStmt.executeQuery();
+        if (rs.next()) {
+            double availquantity = rs.getDouble("quantity");
+            if (availquantity < quantity) {
+                System.err.println("Not enough quantity in stock. Available: " + availquantity);
+                return;
+            }
+        } else {
+            System.err.println("Product not found.");
+            return;
+        }
+
+        // Step 2: Insert into user_inventory
         pstmt.setString(1, name);
         pstmt.setString(2, phone);
         pstmt.setString(3, address);
@@ -294,14 +400,26 @@ private void Submit_button(ActionEvent event) {
         pstmt.setString(6, note);
         pstmt.setDouble(7, codAmount);
         pstmt.setDouble(8, invoiceAmount);
-        pstmt.setDouble(9, quintity);
+        pstmt.setDouble(9, quantity);
         pstmt.setString(10, status);
         pstmt.setString(11, date);
         pstmt.setInt(12, productId);
-        pstmt.setInt(13, userId); 
+        pstmt.setInt(13, userId);
 
         int rowsInserted = pstmt.executeUpdate();
+
         if (rowsInserted > 0) {
+            // Step 3: Subtract quantity
+            updateStmt.setDouble(1, quantity);
+            updateStmt.setInt(2, productId);
+            int updatedRows = updateStmt.executeUpdate();
+
+            if (updatedRows > 0) {
+                System.out.println("Product quantity reduced.");
+            } else {
+                System.err.println("Failed to update product quantity.");
+            }
+
             System.out.println("Invoice added successfully!");
             clearForm();
         }
@@ -309,63 +427,73 @@ private void Submit_button(ActionEvent event) {
     } catch (SQLException e) {
         e.printStackTrace();
     } catch (NumberFormatException e) {
-        System.err.println("Please enter valid numeric values for COD, invoice amount, and weight.");
+        System.err.println("Please enter valid numeric values for COD, invoice amount, and quantity.");
     }
+//    send_mail(event);
 }
 
 
-    // Send mail file generate
     public void send_mail(ActionEvent event) {
-        String selectQuery = "SELECT * FROM user_inventory";
+        // Extract and validate input fields
+        String name = name_textField.getText().trim();
+        String phone = phone_textField.getText().trim();
+        String address = address_textField.getText().trim();
+        String district = district_textField.getText().trim();
+        String thana = thana_textField.getText().trim();
+        String note = note_textField.getText().trim();
+        String codText = codAmount_textField.getText().trim();
+        String invoiceText = invoiceAmout_textField.getText().trim();
+        String quantityText = quantiryTextFild.getText().trim();
+        String status = "Pending";
+        String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-        File invoiceDir = new File("G:\\java project\\GoInventory-main\\GoInventory-main\\out\\Mail box\\Invoice");
-        invoiceDir.mkdirs(); // Create directory if it doesn't exist
+        // Input validation
+        if (name.isEmpty() || phone.isEmpty() || codText.isEmpty() || invoiceText.isEmpty() || quantityText.isEmpty()) {
+            System.out.println("Please fill all required fields (Name, Phone, COD, Invoice, Quantity).");
+            return;
+        }
 
-        try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(selectQuery)) {
-            while (rs.next()) {
-                // Extract data
-                String name = rs.getString("customer_name");
-                String phone = rs.getString("phone_number");
-                String address = rs.getString("address");
-                String district = rs.getString("district");
-                String thana = rs.getString("thana");
-                String note = rs.getString("note");
-                double codAmount = rs.getDouble("cod_amount");
-                double invoiceAmount = rs.getDouble("invoice_amount");
-                double quintity = rs.getDouble("quintity");
-                String status = rs.getString("status");
-                String date = rs.getString("date");
+        double codAmount, invoiceAmount, quantity;
+        try {
+            codAmount = Double.parseDouble(codText);
+            invoiceAmount = Double.parseDouble(invoiceText);
+            quantity = Double.parseDouble(quantityText);
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter valid numeric values for COD, Invoice Amount, and Quantity.");
+            return;
+        }
 
-                // ai part e file e name jate error na dey tai useless part remove kortechi
-                String safeFileName = name.replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
+        // Create directory for saving invoice file
+        File invoiceDir = new File("C:\\Users\\User\\Downloads\\GoInventory[1]\\GoInventory\\out\\Mail box\\Invoice");
+        if (!invoiceDir.exists()) {
+            invoiceDir.mkdirs();
+        }
 
-                File invoiceFile = new File(invoiceDir, safeFileName + "_" + phone + "_Invoice.txt");
-                // shob string write hobe
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter(invoiceFile))) {
-                    writer.write("=========== Invoice ===========\n");
-                    writer.write("Customer Name : " + name + "\n");
-                    writer.write("Phone Number  : " + phone + "\n");
-                    writer.write("Address       : " + address + "\n");
-                    writer.write("District      : " + district + "\n");
-                    writer.write("Thana         : " + thana + "\n");
-                    writer.write("Note          : " + note + "\n");
-                    writer.write("COD Amount    : " + codAmount + "\n");
-                    writer.write("Invoice Amount: " + invoiceAmount + "\n");
-                    writer.write("Quintity        : " + quintity + " \n");
-                    writer.write("Status        : " + status + "\n");
-                    writer.write("Date          : " + date + "\n");
-                    writer.write("================================\n");
-                } catch (IOException e) {
-                    System.err.println("Failed to write invoice for " + name + ": " + e.getMessage());
-                }
-            }
+        // Create a safe file name
+        String safeFileName = name.replaceAll("[^a-zA-Z0-9]", "_") + "_" + phone + "_Invoice.txt";
+        File invoiceFile = new File(invoiceDir, safeFileName);
 
-            System.out.println("All invoices generated successfully in: " + invoiceDir.getAbsolutePath());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        // Write to file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(invoiceFile))) {
+            writer.write("=========== Invoice ===========\n");
+            writer.write("Customer Name  : " + name + "\n");
+            writer.write("Phone Number   : " + phone + "\n");
+            writer.write("Address        : " + address + "\n");
+            writer.write("District       : " + district + "\n");
+            writer.write("Thana          : " + thana + "\n");
+            writer.write("Note           : " + note + "\n");
+            writer.write("COD Amount     : " + codAmount + "\n");
+            writer.write("Invoice Amount : " + invoiceAmount + "\n");
+            writer.write("Quantity       : " + quantity + "\n");
+            writer.write("Status         : " + status + "\n");
+            writer.write("Date           : " + date + "\n");
+            writer.write("================================\n");
+            System.out.println("Invoice generated: " + invoiceFile.getAbsolutePath());
+        } catch (IOException e) {
+            System.err.println("Error writing invoice file: " + e.getMessage());
         }
     }
+
 
     // Add parcel from clear after submit button
     private void clearForm() {
@@ -400,7 +528,7 @@ private void Submit_button(ActionEvent event) {
                         rs.getString("address"),
                         rs.getString("district"),
                         rs.getString("note"),
-                        rs.getDouble("invoice_amount"),
+                        rs.getDouble("cod_amount"),
                         rs.getDouble("quintity"),
                         rs.getString("date")
                 ));
@@ -459,25 +587,26 @@ private void Submit_button(ActionEvent event) {
     }
 
 
-    
     @FXML
-    void catagorySavebtn(ActionEvent event) {
-        String sql = "INSERT INTO categories (category_name) VALUES (?)";
+void catagorySavebtn(ActionEvent event) {
+    String sql = "INSERT INTO categories (category_name, catauserid) VALUES (?, ?)";
 
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+    try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        String categoryName = catagoryNameInput.getText();
+        int userId = IdStore.getloginId();
 
-            String categoryName = catagoryNameInput.getText();
+        pstmt.setString(1, categoryName);
+        pstmt.setInt(2, userId);
+        pstmt.executeUpdate();
 
-            pstmt.setString(1, categoryName);
-            pstmt.executeUpdate();
-
-            System.out.println("Category added successfully.");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        catagoryTableLoad(event);
+        System.out.println("Category added successfully.");
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+
+    catagoryTableLoad(event);
+}
+
 
     @FXML
     public void catagoryTableLoad(ActionEvent event) {
@@ -581,11 +710,15 @@ private void Submit_button(ActionEvent event) {
 
     }
 
-    
     private void loadCategoriesIntoComboBox(ComboBox<Category> comboBox) {
-    String sql = "SELECT catagoryId, category_name FROM categories";
+    String sql = "SELECT catagoryId, category_name FROM categories WHERE catauserid = ?";
+    
     try {
+        int userId = IdStore.getloginId(); 
+
         PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setInt(1, userId); 
+
         ResultSet rs = stmt.executeQuery();
 
         ObservableList<Category> categoryList = FXCollections.observableArrayList();
@@ -601,6 +734,7 @@ private void Submit_button(ActionEvent event) {
         e.printStackTrace();
     }
 }
+
 
 
      @FXML
@@ -644,16 +778,20 @@ private void Submit_button(ActionEvent event) {
     loadProductTable();
 }
 
-// Load product table in add prodrct ui
-
+// Load product table in add Inventory ui
 private void loadProductTable() {
     ObservableList<ProductInventory> productList = FXCollections.observableArrayList();
 
     String sql = "SELECT p.id, p.name, p.quantity, p.price, c.catagoryId, c.category_name " +
-                 "FROM productInventory p JOIN categories c ON p.Ncategory_id = c.catagoryId";
+                 "FROM productInventory p " +
+                 "JOIN categories c ON p.Ncategory_id = c.catagoryId " +
+                 "WHERE c.catauserid = ?";
 
-    try (PreparedStatement stmt = connection.prepareStatement(sql);
-         ResultSet rs = stmt.executeQuery()) {
+    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        int userId = IdStore.getloginId(); // Get the currently logged-in user ID
+        stmt.setInt(1, userId); // Apply filter
+
+        ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
             Category category = new Category(

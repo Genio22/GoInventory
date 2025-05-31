@@ -38,7 +38,7 @@ public class registration_Controller {
             return;
         }
 
-        String sql = "INSERT INTO Role_login (username, password, name, email, role) VALUES (?, ?, ?, ?, ?)"; // sql quari insert kore dis , amni akta dichi
+        String sql = "INSERT INTO role_login (username, password, name, email, role) VALUES (?, ?, ?, ?, ?)"; 
 
         try (Connection conn = DB.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

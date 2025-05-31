@@ -5,29 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Style/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.Login_Controller">
     <AnchorPane prefHeight="400.0" prefWidth="323.0" styleClass="side-pane">
-        <Text layoutX="56.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="company-name" text="GoInventroy" wrappingWidth="210.13671875">
+        <Text layoutX="75.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="company-name" text="GoInventroy" wrappingWidth="210.13671875">
            <font>
                <Font size="34.0" />
            </font>
         </Text>
+      <ImageView fitHeight="282.0" fitWidth="313.0" layoutX="12.0" layoutY="87.0">
+         <image>
+            <Image url="@../Image/Logo/login.png" />
+         </image>
+      </ImageView>
     </AnchorPane>
     <TextField fx:id="user_text" layoutX="374.0" layoutY="127.0" onAction="#username" />
     <Label layoutX="374.0" layoutY="108.0" text="Username" />
     <Label layoutX="376.0" layoutY="173.0" text="Password" />
     <PasswordField fx:id="pass_text" layoutX="374.0" layoutY="192.0" onAction="#password" />
-    <Button fx:id="signin_button" layoutX="422.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
-   <Text layoutX="441.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-header" text="Login" wrappingWidth="48.443359375">
+    <Button fx:id="signin_button" layoutX="398.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#signin_click" text="Sign in" textFill="#1f54c6" />
+   <Text layoutX="419.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-header" text="Login" wrappingWidth="109.24334716796875">
       <font>
          <Font size="19.0" />
       </font>
    </Text>
    <Label fx:id="error_alert" layoutX="376.0" layoutY="238.0" styleClass="error" textFill="#f50000" />
-   <Label layoutX="377.0" layoutY="324.0" text="Donot have a account" />
-   <Hyperlink fx:id="singup_hyperlink" layoutX="511.0" layoutY="322.0" onAction="#singup_hyper_act" text="signup" />
+   <Label layoutX="377.0" layoutY="324.0" text="Don't have a account ? " />
+   <Hyperlink fx:id="singup_hyperlink" layoutX="511.0" layoutY="319.0" onAction="#singup_hyper_act" text="signup" />
 </AnchorPane>

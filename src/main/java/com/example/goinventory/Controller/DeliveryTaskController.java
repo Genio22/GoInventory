@@ -58,11 +58,11 @@ private void loadTableData() {
 
     String query = """
         SELECT ui.invoice_id, ui.customer_name, ui.phone_number, ui.address,
-               ui.district, ui.quintity, ui.status, ui.cod_amount, ui.due_date,
-               p.name
-        FROM user_inventory ui
-        JOIN productinventory p ON ui.product_id = p.id
-        WHERE ui.deliverymanId = ? AND ui.status = 'Pending'
+       ui.district, ui.quintity, ui.status, ui.cod_amount, ui.due_date,
+       p.name, ui.userId
+FROM user_inventory ui
+JOIN productinventory p ON ui.product_id = p.id
+WHERE ui.deliverymanId = ? AND ui.status = 'Pending'
     """;
 
     try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -80,26 +80,40 @@ private void loadTableData() {
                 rs.getString("status"),
                 rs.getDouble("cod_amount"),
                 rs.getString("due_date"),
-                rs.getString("name")
-            ));
+                rs.getString("name"),
+                rs.getInt("userId") 
+        ));
         }
     } catch (SQLException e) {
         e.printStackTrace();
     }
 
     Del_table.setItems(list);
-}
-
-
-   @FXML
-    void Deliverd(ActionEvent event) {
+}@FXML
+void Deliverd(ActionEvent event) {
     DeliveryManTable selectedItem = Del_table.getSelectionModel().getSelectedItem();
     if (selectedItem != null) {
-        String updateQuery = "UPDATE user_inventory SET status = ? WHERE invoice_id = ?";
-        try (PreparedStatement ps = connection.prepareStatement(updateQuery)) {
-            ps.setString(1, "delivered");
-            ps.setInt(2, selectedItem.getInvoiceId());
-            ps.executeUpdate();
+        int targetUserId = selectedItem.getUserId(); 
+        System.out.println(targetUserId);
+        double codAmount = selectedItem.getInvoiceAmount(); 
+
+        String updateStatusQuery = "UPDATE user_inventory SET status = ? WHERE invoice_id = ?";
+        String updateAmountQuery = "UPDATE role_login SET amount = amount + ? WHERE id = ?";
+
+        try (
+            PreparedStatement ps1 = connection.prepareStatement(updateStatusQuery);
+            PreparedStatement ps2 = connection.prepareStatement(updateAmountQuery)
+        ) {
+       
+            ps1.setString(1, "delivered");
+            ps1.setInt(2, selectedItem.getInvoiceId());
+            ps1.executeUpdate();
+
+            
+            ps2.setDouble(1, codAmount);
+            ps2.setInt(2, targetUserId);
+            ps2.executeUpdate();
+
             loadTableData(); 
         } catch (SQLException e) {
             e.printStackTrace();

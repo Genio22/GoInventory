@@ -1,6 +1,4 @@
-/* ===========================
-   SIDEBAR (root AnchorPane)
-   =========================== */
+
 .AnchorPane1 {
     -fx-background-color: #478bda;
     -fx-background-radius: 10px;
@@ -8,9 +6,7 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 2, 2);
 }
 
-/* ===========================
-   LOGO + TITLE
-   =========================== */
+
 .logo {
     /* applied on your ImageView */
     -fx-background-image: url("/Image/Logo/icon.png");
@@ -37,9 +33,7 @@ HBox > Text {
     -fx-font-weight: bold;
 }
 
-/* ===========================
-   GENERIC BUTTONS & MENUBUTTONS
-   =========================== */
+
 .button,
 .menu-button {
     -fx-background-color: white;
@@ -51,21 +45,19 @@ HBox > Text {
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0, 0, 2);
 }
 
-/* hover state */
+
 .button:hover,
 .menu-button:hover {
     -fx-background-color: #e0eaff;
     -fx-text-fill: #478bda;
 }
 
-/* ensure the arrow on MenuButton stays flat */
+
 .menu-button > .arrow {
     -fx-background-color: transparent;
 }
 
-/* ===========================
-   MENU ITEMS (inside each MenuButton)
-   =========================== */
+
 .menu-item {
     -fx-background-color: white;
     -fx-text-fill: #478bda;
@@ -77,9 +69,7 @@ HBox > Text {
     -fx-text-fill: #478bda;
 }
 
-/* ===========================
-   TEXT & LABEL FALLBACKS
-   =========================== */
+
 Label {
     -fx-font-size: 14px;
 }
@@ -90,9 +80,7 @@ Text {
     -fx-font-size: 16px;
 }
 
-/* ===========================
-   SUGGESTION/BUG-REPORT BOX
-   =========================== */
+
 
 VBox {
     -fx-background-radius: 10px;
@@ -117,22 +105,22 @@ VBox Button {
 
 /* For the main menu list */
 .menu {
-    -fx-spacing: 12;      /* pixels between each child */
-    -fx-padding: 10 0;    /* top/bottom 10px, left/right 0px */
+    -fx-spacing: 12;      
+    -fx-padding: 10 0;    
 }
 
 /* For the suggestion/bug-report box */
 .suggestion-box {
     -fx-background-color: white;
     -fx-border-radius: 10px;
-    -fx-spacing: 8;       /* pixels between the Text, Label, and Button */
-    -fx-padding: 10;      /* uniform padding inside the box */
+    -fx-spacing: 8;       
+    -fx-padding: 10;      
 }
 /*
 Admin top bar design
 */
 .grid{
-    -fx-background-color: #478bda;
+    /* -fx-background-color: #478bda; */
     -fx-background-radius: 0px 0px 10px 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 2, 2);
 }

@@ -21,7 +21,7 @@ public class AdminMenuController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Dashboard_button.setOnAction(event -> onDashboard());
-        Product_Inventory_button.setOnAction(event -> onManageProduct());
+//        Product_Inventory_button.setOnAction(event -> onManageProduct());
         Manage_Users_Role_button.setOnAction(event -> onManage_Users_Role());
         View_Order_button.setOnAction(event -> onView_Order());
 //        Invoices_button.setOnAction(event -> onInvoice());

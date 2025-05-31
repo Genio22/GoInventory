@@ -1,45 +1,32 @@
-/* login.css */
-
+/* registration.css */
 
 .root {
     -fx-background-color: #f5f6fa;
     -fx-font-family: 'Segoe UI', sans-serif;
 }
 
-
-
-/* Logo text */
-.company-name {
-    -fx-font-size: 30px;
-    -fx-fill: #7a4f55;
-    -fx-font-weight: bold;
-}
-
-/* Heading text */
 .login-header {
-    -fx-font-size: 22px;
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-fill: #333;
 }
 
-/* Labels */
 .label {
     -fx-font-size: 13px;
     -fx-text-fill: #333333;
 }
 
-/* Text fields and password  */
 .text-field,
 .password-field {
-    -fx-pref-width: 200px;
-    -fx-pref-height: 38px;
+    -fx-pref-width: 250px;
+    -fx-pref-height: 40px;
     -fx-background-color: white;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
     -fx-border-color: transparent;
     -fx-padding: 0 10 0 10;
-    -fx-font-size: 13px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+    -fx-font-size: 14px;
 }
 
 .text-field:focused,
@@ -48,24 +35,22 @@
     -fx-border-width: 1.5px;
 }
 
-/* Sign in button */
 .button {
     -fx-background-color: #935f66;
     -fx-text-fill: white;
-    -fx-font-size: 14px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-background-radius: 8px;
+    -fx-background-radius: 10px;
     -fx-cursor: hand;
-    -fx-pref-width: 150px;
-    -fx-pref-height: 38px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 6, 0.2, 0, 2);
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0.2, 0, 2);
 }
 
 .button:hover {
     -fx-background-color: #7a4f55;
 }
 
-/*link  */
 .hyperlink {
     -fx-text-fill: #1f54c6;
     -fx-font-size: 13px;
@@ -76,3 +61,17 @@
     -fx-underline: true;
 }
 
+.error {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}
+
+.side-pane {
+  
+}
+
+.company-name {
+    -fx-font-size: 28px;
+    -fx-fill: #7a4f55;
+    -fx-font-weight: bold;
+}
