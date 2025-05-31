@@ -1,0 +1,13 @@
+=========== Invoice ===========
+Customer Name  : dsf
+Phone Number   : 2132
+Address        : fsdff
+District       : fdf
+Thana          : afs
+Note           : faf
+COD Amount     : 350.0
+Invoice Amount : 300.0
+Quantity       : 1.0
+Status         : Pending
+Date           : 2025-05-27
+================================

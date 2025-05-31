@@ -1,0 +1,13 @@
+=========== Invoice ===========
+Customer Name  : sdas
+Phone Number   : sa
+Address        : dsad
+District       : asd
+Thana          : as
+Note           : da
+COD Amount     : 360.0
+Invoice Amount : 300.0
+Quantity       : 2.0
+Status         : Pending
+Date           : 2025-05-31
+================================

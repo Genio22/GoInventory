@@ -33,8 +33,6 @@ public class AdminController implements Initializable {
                     admin_parent.setCenter(Model.getInstance().getViewFactory().getAssignDeliveryView());
                 case "View_Order" ->
                     admin_parent.setCenter(Model.getInstance().getViewFactory().getViewOrderView());
-//                case "Invoice" ->
-//                    admin_parent.setCenter(Model.getInstance().getViewFactory().getInvoiceView());
                 default ->
                     admin_parent.setCenter(Model.getInstance().getViewFactory().getDashboardview());
             }

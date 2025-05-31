@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `inventory` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `inventory`;
 -- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
 -- Host: localhost    Database: inventory
@@ -31,7 +33,7 @@ CREATE TABLE `productinventory` (
   PRIMARY KEY (`id`),
   KEY `Ncategory_id` (`Ncategory_id`),
   CONSTRAINT `productinventory_ibfk_1` FOREIGN KEY (`Ncategory_id`) REFERENCES `categories` (`catagoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +42,7 @@ CREATE TABLE `productinventory` (
 
 LOCK TABLES `productinventory` WRITE;
 /*!40000 ALTER TABLE `productinventory` DISABLE KEYS */;
-INSERT INTO `productinventory` VALUES (1,'fgfd',2,3.00,1);
+INSERT INTO `productinventory` VALUES (6,'shirt',10,350.00,50),(7,'fan',20,600.00,51),(8,'full shirt',20,400.00,52),(9,'full sleve',18,300.00,55),(10,'k',18,300.00,55),(11,'k',18,300.00,55);
 /*!40000 ALTER TABLE `productinventory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-20  3:02:48
+-- Dump completed on 2025-05-26 17:05:40

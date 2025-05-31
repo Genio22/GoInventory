@@ -93,6 +93,21 @@ public class ViewFactory {
         return AssignDeliveryView;
     }
 
+    public void showRegistrationWindows(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/registration.fxml"));
+            Scene scene = new Scene(loader.load());
+            Image i = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("GoInventory");
+            stage.getIcons().add(i);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void showLoginWindows() {// User: Admin, Pass: admin
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml"));
@@ -123,6 +138,23 @@ public class ViewFactory {
 //        User_Controller  user = new User_Controller();
 //        loader.setController(user);
         CreateStage(loader);
+    }
+
+    public void showDeliveryWindows() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Delivery/Delivery.fxml"));
+            Scene scene = new Scene(loader.load());
+            Image i = new Image("file:/F:/Project java/GoInventory/src/main/resources/Image/Logo/icon.png");
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("GoInventory");
+            stage.getIcons().add(i);
+            //stage.setMinWidth(1366);
+            //stage.setMinHeight(800);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void CreateStage(FXMLLoader loader) {

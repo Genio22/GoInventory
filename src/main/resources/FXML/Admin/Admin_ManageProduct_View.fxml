@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,52 +11,53 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="768.0" prefHeight="680.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane maxHeight="768.0" prefHeight="680.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.goinventory.Controller.AdminManageProduct_controller">
    <children>
-      <TableView layoutX="54.0" layoutY="69.0" prefHeight="586.0" prefWidth="514.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="69.0">
+      <TableView fx:id="manageProTable" layoutX="54.0" layoutY="69.0" prefHeight="586.0" prefWidth="514.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="69.0">
          <columns>
             <TableColumn fx:id="ID" prefWidth="70.40002363920212" text="ID" />
-            <TableColumn fx:id="Name" maxWidth="4000.0" minWidth="14.0" prefWidth="77.60003662109375" text="Category" />
-            <TableColumn fx:id="MobileNumber" maxWidth="4000.0" minWidth="14.0" prefWidth="135.99993896484375" text="Name" />
-            <TableColumn fx:id="Email" maxWidth="4000.0" minWidth="14.0" prefWidth="101.5999755859375" text="Quantity" />
-            <TableColumn fx:id="Email1" maxWidth="4000.0" minWidth="14.0" prefWidth="125.5999755859375" text="Price" />
+            <TableColumn fx:id="manCataory" maxWidth="4000.0" minWidth="14.0" prefWidth="77.60003662109375" text="Category" />
+            <TableColumn fx:id="manProName" maxWidth="4000.0" minWidth="14.0" prefWidth="135.99993896484375" text="Name" />
+            <TableColumn fx:id="manProQuntity" maxWidth="4000.0" minWidth="14.0" prefWidth="101.5999755859375" text="Quantity" />
+            <TableColumn fx:id="manProPrice" maxWidth="4000.0" minWidth="14.0" prefWidth="125.5999755859375" text="Price" />
          </columns>
       </TableView>
-      <VBox layoutX="590.0" layoutY="74.0" prefHeight="600.0" prefWidth="514.0" AnchorPane.rightAnchor="30.0"
-            AnchorPane.topAnchor="87.0">
+      <VBox layoutX="590.0" layoutY="74.0" prefHeight="600.0" prefWidth="514.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="87.0">
          <VBox prefHeight="85.0" prefWidth="514.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category"/>
-            <ComboBox prefHeight="26.0" prefWidth="555.0" promptText="1- Electronics"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+            <TextField fx:id="manCatagoryTxtfild" prefWidth="514.0" />
          </VBox>
          <VBox prefHeight="85.0" prefWidth="514.0">
             <children>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name"/>
-               <TextField prefWidth="514.0"/>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+               <TextField fx:id="manProNameTxt" prefWidth="514.0" />
             </children>
          </VBox>
          <VBox prefHeight="85.0" prefWidth="514.0">
             <children>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity"/>
-               <TextField prefWidth="334.0"/>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+               <TextField prefWidth="334.0" />
             </children>
          </VBox>
          <VBox prefHeight="85.0" prefWidth="100.0">
             <children>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="25.6171875"/>
-               <TextField prefWidth="514.0"/>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="25.6171875" />
                <VBox prefHeight="85.0" prefWidth="100.0">
                   <children>
-                     <VBox prefHeight="92.0" prefWidth="514.0"/>
+                     <VBox fx:id="manPriceTxt" prefHeight="92.0" prefWidth="514.0">
+                        <children>
+                           <TextField prefHeight="31.0" prefWidth="514.0" />
+                        </children></VBox>
                   </children>
                </VBox>
             </children>
          </VBox>
          <HBox prefHeight="36.0" prefWidth="514.0" spacing="60.0">
             <children>
-               <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="57.0" text="SAVE"/>
-               <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" text="Update"/>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="47.0" text="Reset"/>
-               <Button mnemonicParsing="false" text="Close"/>
+               <Button mnemonicParsing="false" onAction="#manSavebtn" prefHeight="39.0" prefWidth="74.0" text="SAVE" />
+               <Button mnemonicParsing="false" onAction="#manUpdatebtn" prefHeight="45.0" prefWidth="70.0" text="Update" />
+               <Button mnemonicParsing="false" onAction="#manResetbtn" prefHeight="50.0" prefWidth="77.0" text="Reset" />
+               <Button layoutX="274.0" layoutY="10.0" mnemonicParsing="false" onAction="#manDeletebtn" prefHeight="50.0" prefWidth="77.0" text="Delete" />
             </children>
          </HBox>
       </VBox>
