@@ -127,16 +127,14 @@ GoInventory is a robust inventory and sales management system tailored for busin
 - **Delivery Man:** View assigned parcels, update delivery status (Delivered/Cancelled), manage own profile.
 
 ---
+## Contributors
 
+- Ahnaf Sahaf (GitHub: @Genio22)
+- MD Junayed Ahmad Shanto (GitHub: @Shant-0)
 ## Contribution
 
 Feel free to fork the repository and submit pull requests. For major changes, open an issue first to discuss what you would like to change.
 
----
-
-## License
-
-(Add your license here, e.g., MIT)
 
 ---
 
