@@ -1,0 +1,13 @@
+=========== Invoice ===========
+Customer Name  : Ahnaf
+Phone Number   : 019257817978
+Address        : 1/A tret
+District       : Dhaka
+Thana          : dasd
+Note           : das
+COD Amount     : 360.0
+Invoice Amount : 300.0
+Quantity       : 1.0
+Status         : Pending
+Date           : 2025-05-27
+================================
